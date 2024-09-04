@@ -5,139 +5,175 @@
     <meta charset="UTF-8">
     <title>pdr</title>
     <style>
-        @import url('https://fonts.cdnfonts.com/css/andale-mono');
-        body { margin: 0; padding: 0; min-width: fit-content; padding-bottom: 100px; }
-        a { color: inherit; }
-        .big-fonts { font-size: 15px; line-height: 30px; }
-        pre {
-            font-family: 'Andale Mono'; font-size: 12px; line-height: 17px; text-wrap: wrap; /*  monospace */
-            margin: 0 auto; width: 956px; padding: 0 100px;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+        * { font-family: 'Roboto Mono'; text-wrap: wrap; margin: 0; padding: 0; }
+        a { color: inherit; text-decoration: none; }
+        .big-fonts, .big-fonts b { font-size: 15px; line-height: 22.5px; }
+        pre { font-size: 10px; letter-spacing: 0.75px;
+              margin: 0 auto; width: 956px; padding: 0 50px; }
         .progress { width: 100%; height: 2px; position: fixed; }
         .progress-bar { width: 0%; height: 2px; background-color: #0d0d0d; }
-        .up {
-            all: unset; cursor: pointer; font-size: 15px;
-            position: fixed; bottom: 20px; right: 20px;
-        }
+        .up { width: 100px; height: 100px; font-size: 100px;
+              position: fixed; bottom: 50px; right: 50px;
+              display: flex; justify-content: center; align-items: center; }
         .sings { display: flex; flex-wrap: wrap; gap: 20px; width: 956px; }
-        .sings > span {
-            display: flex; flex-direction: column; align-items: center; gap: 10px;
-            width: 100px; padding: 1px; text-wrap: wrap; text-align: center; line-height: 13px; text-transform: lowercase;
-        }
+        .sings > span { display: flex; flex-direction: column; align-items: center; gap: 10px;
+                        width: 100px; padding: 1px; text-align: center; text-transform: lowercase; }
         .sings > span.disable { display: none; }
         svg { max-height: 90px; }
-        .map a { text-decoration: none; color: rgb(71, 71, 248); } /* зробити щоб в темній темі світліший відтінок */
     </style>
 </head>
 <body style="background-color: rgb(238, 238, 238); color: #0d0d0d;">
 <div class="progress"><div class="progress-bar"></div></div>
-<a class="up" href="#goup">^</a>
-<pre style="display: flex; justify-content: center;">
-
-
-
-
-██████  ██████  ██████
-██   ██ ██   ██ ██   ██
-██████  ██   ██ ██████
-██      ██   ██ ██   ██
-██      ██████  ██   ██
+<a class="up" href="#goup">up</a>
+<pre>
 
 
 
 
 </pre>
-<pre>
-<span id="themes" style="cursor: pointer;">change themes [🌝/🌚] <<<</span>
-<span id="sources"></span>
-
-
-[ джерела ]
-|
-|-[ знаки ]
-| |
-| | <a href="https://en.wikipedia.org/wiki/Comparison_of_European_road_signs" target="_blank">wikipedia.org</a>
-| ^
-|
-|-[ теорія і тести ]
-| |
-| | <a href="https://vodiy.ua/pdr/" target="_blank">vodiy.ua</a>
-| | <a href="https://pdr.infotech.gov.ua/theory" target="_blank">pdr.infotech.gov.ua</a>
-| | <a href="https://dai.eu.com/pravila-dorozhnogo-ruxu-ukrani-2010" target="_blank">dai.eu.com</a>
-| ^
-^
-
-
+<pre style="display: flex; justify-content: center;">
+<i>
+      :::::::::  :::::::::  ::::::::: 
+     :+:    :+: :+:    :+: :+:    :+:
+    +:+    +:+ +:+    +:+ +:+    +:+ 
+   +#++:++#+  +#+    +:+ +#++:++#:   
+  +#+        +#+    +#+ +#+    +#+   
+ #+#        #+#    #+# #+#    #+#    
+###        #########  ###    ###
+</i>
 </pre>
 <pre class="map">
+
+
+
+
+<span id="themes" style="cursor: pointer;">change themes [🌝/🌚] <<<</span>
+
+
+
+<b>ДЖЕРЕЛА</b>
+
+
+<b>-</b> <a href="https://en.wikipedia.org/wiki/Comparison_of_European_road_signs" target="_blank">wikipedia.org</a>
+
+<b>-</b> <a href="https://vodiy.ua/pdr/" target="_blank">vodiy.ua</a>
+
+<b>-</b> <a href="https://pdr.infotech.gov.ua/theory" target="_blank">pdr.infotech.gov.ua</a>
+
+<b>-</b> <a href="https://dai.eu.com/pravila-dorozhnogo-ruxu-ukrani-2010" target="_blank">dai.eu.com</a>
+
 <span id="goup"></span>
 
-[ pdr ]
-|
-|-[ знаки ]
-| |
-| | [1] <a href="#warning">попереджувальні</a>
-| | [2] <a href="#priority">пріоритетні</a>
-| | [3] <a href="#prohibitory">заборонні</a>
-| | [4] <a href="#mandatory">наказові</a>
-| | [5] <a href="#information">інформаційно-вказівні</a>
-| | [6] <a href="#service">сервісні</a>
-| | [7] <a href="#additional_plates">додаткові</a>
-| |
-| | [8] <a href="#signs_on_cars">розпізнавальні</a>
-| ^
-|
-|-[ розмітки ] 
-| |
-| | [1] <a href="#horizontal_marking">горизонтальна</a>
-| | [2] <a href="#vertical_marking">вертикальна</a>
-| ^
-|
-|-[ правила дорожнього руху ]
-| |
-| |  [1] <a href="#general_provisions">загальні положення</a>
-| |  [2] <a href="#duties_and_rights_of_drivers_of_mechanical_vehicles">обов'язки і права водіїв механічних транспортних засобів</a>
-| |  [3] <a href="#movement_of_vehicles_with_special_signals">рух транспортних засобів зі спеціальними сигналами</a>
-| |  [4] <a href="#duties_and_rights_of_pedestrians">обов'язки та права пішоходів</a>
-| |  [5] <a href="#obligations_and_rights_of_passengers">обов'язки та права пасажирів</a>
-| |  [6] <a href="#requirements_for_cyclists">вимоги до велосипедистів</a>
-| |  [7] <a href="#requirements_for_persons_who_drive_mass_transport_and_animal_drivers">вимоги до осіб, які керують гужовим транспортом та погоничів тварин</a>
-| |  [8] <a href="#regulation_of_traffic">регулювання дорожнього руху</a>
-| |  [9] <a href="#warning_signals">попереджувальні сигнали</a>
-| | [10] <a href="#beginning_of_movement_and_changing_its_direction">початок руху та зміна його напрямку</a>
-| | [11] <a href="#location_of_vehicles_on_the_road">розташування транспортних засобів на дорозі</a>
-| | [12] <a href="#speed_of_movement">швидкість руху</a>
-| | [13] <a href="#distance_interval_oncoming_departure">дистанція, інтервал, зустрічний роз'їзд</a>
-| | [14] <a href="#overtaking">обгін</a>
-| | [15] <a href="#stop_and_parking">зупинка та стоянка</a>
-| | [16] <a href="#driving_through_the_intersection">проїзд перехресть</a>
-| | [17] <a href="#advantages_of_route_vehicles">переваги маршрутних транспортних засобів</a>
-| | [18] <a href="#passage_of_pedestrian_crossings_and_vehicle_stops">проїзд пішохідних переходів та зупинок транспортних засобів</a>
-| | [19] <a href="#use_of_external_lighting_devices">користування зовнішніми світловими приладами</a>
-| | [20] <a href="#traffic_through_railway_crossings">рух через залізничні переїзди</a>
-| | [21] <a href="#transportation_of_passengers">перевезення пасажирів</a>
-| | [22] <a href="#cargo_transportation">перевезення вантажу</a>
-| | [23] <a href="#towing_and_operation_of_transport_trains">буксирування та експлуатація транспортних составів</a>
-| | [24] <a href="#training_ride">павчальна їзда</a>
-| | [25] <a href="#movement_of_vehicles_in_convoys">рух транспортних засобів у колонах</a>
-| | [26] <a href="#traffic_in_residential_and_pedestrian_areas">рух у житловій та пішохідній зоні</a>
-| | [27] <a href="#traffic_on_highways_and_roads_for_cars">рух по автомагістралях і дорогах для автомобілів</a>
-| | [28] <a href="#driving_on_mountain_roads_and_on_steep_slopes">рух по гірських дорогах і на крутих спусках</a>
-| | [29] <a href="#international_movement">міжнародний рух</a>
-| | [30] <a href="#number_plates_identification_signs_inscriptions_and_designations">номерні, розпізнавальні знаки, написи та позначення</a>
-| | [31] <a href="#technical_condition_of_vehicles_and_their_equipment">технічний стан транспортних засобів та їх обладнання</a>
-| | [32] <a href="#separate_issues_of_traffic_organization_that_require_coordination">окремі питання організації дорожнього руху, що потребують узгодження</a>
-| | [33] <a href="#road_signs">дорожні знаки</a>
-| | [34] <a href="#road_markings">дорожня розмітка</a>
-| ^
-^
+<b>ЗНАКИ</b>
 
+
+<b>1.</b> <a href="#warning">Попереджувальні</a>
+
+<b>2.</b> <a href="#priority">Пріоритетні</a>
+
+<b>3.</b> <a href="#prohibitory">Заборонні</a>
+
+<b>4.</b> <a href="#mandatory">Наказові</a>
+
+<b>5.</b> <a href="#information">Інформаційно-вказівні</a>
+
+<b>6.</b> <a href="#service">Сервісні</a>
+
+<b>7.</b> <a href="#additional_plates">Додаткові</a>
+
+
+<b>8.</b> <a href="#signs_on_cars">Розпізнавальні</a>
+
+
+
+<b>РОЗМІТКИ</b>
+
+
+<b>1.</b> <a href="#horizontal_marking">Горизонтальна</a>
+
+<b>2.</b> <a href="#vertical_marking">Вертикальна</a>
+
+
+
+<b>ПРАВИЛА ДОРОЖНЬОГО РУХУ</b>
+
+
+<b>1.</b> <a href="#general_provisions">Загальні положення</a>
+
+<b>2.</b> <a href="#duties_and_rights_of_drivers_of_mechanical_vehicles">Обов'язки і права водіїв механічних транспортних засобів</a>
+
+<b>3.</b> <a href="#movement_of_vehicles_with_special_signals">Рух транспортних засобів зі спеціальними сигналами</a>
+
+<b>4.</b> <a href="#duties_and_rights_of_pedestrians">Обов'язки та права пішоходів</a>
+
+<b>5.</b> <a href="#obligations_and_rights_of_passengers">Обов'язки та права пасажирів</a>
+
+<b>6.</b> <a href="#requirements_for_cyclists">Вимоги до велосипедистів</a>
+
+<b>7.</b> <a href="#requirements_for_persons_who_drive_mass_transport_and_animal_drivers">Вимоги до осіб, які керують гужовим транспортом та погоничів тварин</a>
+
+<b>8.</b> <a href="#regulation_of_traffic">Регулювання дорожнього руху</a>
+
+<b>9.</b> <a href="#warning_signals">Попереджувальні сигнали</a>
+
+<b>10.</b> <a href="#beginning_of_movement_and_changing_its_direction">Початок руху та зміна його напрямку</a>
+
+<b>11.</b> <a href="#location_of_vehicles_on_the_road">Розташування транспортних засобів на дорозі</a>
+
+<b>12.</b> <a href="#speed_of_movement">Швидкість руху</a>
+
+<b>13.</b> <a href="#distance_interval_oncoming_departure">Дистанція, інтервал, зустрічний роз'їзд</a>
+
+<b>14.</b> <a href="#overtaking">Обгін</a>
+
+<b>15.</b> <a href="#stop_and_parking">Зупинка та стоянка</a>
+
+<b>16.</b> <a href="#driving_through_the_intersection">Проїзд перехресть</a>
+
+<b>17.</b> <a href="#advantages_of_route_vehicles">Переваги маршрутних транспортних засобів</a>
+
+<b>18.</b> <a href="#passage_of_pedestrian_crossings_and_vehicle_stops">Проїзд пішохідних переходів та зупинок транспортних засобів</a>
+
+<b>19.</b> <a href="#use_of_external_lighting_devices">Користування зовнішніми світловими приладами</a>
+
+<b>20.</b> <a href="#traffic_through_railway_crossings">Рух через залізничні переїзди</a>
+
+<b>21.</b> <a href="#transportation_of_passengers">Перевезення пасажирів</a>
+
+<b>22.</b> <a href="#cargo_transportation">Перевезення вантажу</a>
+
+<b>23.</b> <a href="#towing_and_operation_of_transport_trains">Буксирування та експлуатація транспортних составів</a>
+
+<b>24.</b> <a href="#training_ride">Павчальна їзда</a>
+
+<b>25.</b> <a href="#movement_of_vehicles_in_convoys">Рух транспортних засобів у колонах</a>
+
+<b>26.</b> <a href="#traffic_in_residential_and_pedestrian_areas">Рух у житловій та пішохідній зоні</a>
+
+<b>27.</b> <a href="#traffic_on_highways_and_roads_for_cars">Рух по автомагістралях і дорогах для автомобілів</a>
+
+<b>28.</b> <a href="#driving_on_mountain_roads_and_on_steep_slopes">Рух по гірських дорогах і на крутих спусках</a>
+
+<b>29.</b> <a href="#international_movement">Міжнародний рух</a>
+
+<b>30.</b> <a href="#number_plates_identification_signs_inscriptions_and_designations">Номерні, розпізнавальні знаки, написи та позначення</a>
+
+<b>31.</b> <a href="#technical_condition_of_vehicles_and_their_equipment">Технічний стан транспортних засобів та їх обладнання</a>
+
+<b>32.</b> <a href="#separate_issues_of_traffic_organization_that_require_coordination">Окремі питання організації дорожнього руху, що потребують узгодження</a>
+
+<b>33.</b> <a href="#road_signs">Дорожні знаки</a>
+
+<b>34.</b> <a href="#road_markings">Дорожня розмітка</a>
 
 </pre>
 <pre id="warning">
 
 
-[ 1 ] попереджувальні знаки
+
+
+<b>1. ПОПЕРЕДЖУВАЛЬНІ ЗНАКИ</b>
 
 
 
@@ -422,7 +458,7 @@
 <pre id="priority">
 
 
-[ 2 ] знаки пріоритету
+<b>2. ЗНАКИ ПРІОРИТЕТУ</b>
 
 
 
@@ -464,7 +500,7 @@
 <pre id="prohibitory">
 
 
-[ 3 ] заборонні знаки
+<b>3. ЗАБОРОННІ ЗНАКИ</b>
 
 
 
@@ -701,7 +737,7 @@
 <pre id="mandatory">
 
 
-[ 4 ] наказові знаки
+<b>4. НАКАЗОВІ ЗНАКИ</b>
 
 
 
@@ -843,7 +879,7 @@
 <pre id="information">
 
 
-[ 5 ] інформаційно-вказівні знаки
+<b>5. ІНФОРМАЦІЙНО-ВКАЗІВНІ ЗНАКИ</b>
 
 
 
@@ -1476,7 +1512,7 @@
 <pre id="service">
 
 
-[ 6 ] знаки сервісу
+<b>6. ЗНАКИ СЕРВІСУ</b>
 
 
 
@@ -1630,7 +1666,7 @@
 <pre id="additional_plates">
 
 
-[ 7 ] таблички до дорожніх знаків
+<b>7. ТАБЛИЧКИ ДО ДОРОЖНІХ ЗНАКІВ</b>
 
 
 
@@ -1959,7 +1995,7 @@
 <pre id="signs_on_cars">
 
 
-[ 8 ] розпізнавальні знаки на транспортних засобах
+<b>8. РОЗПІЗНАВАЛЬНІ ЗНАКИ НА ТРАНСПОРТНИХ ЗАСОБАХ</b>
 
 
 
@@ -2060,7 +2096,7 @@
 <pre id="horizontal_marking">
 
 
-[ 1 ] горизонтальна розмітка
+<b>1. ГОРИЗОНТАЛЬНА РОЗМІТКА</b>
 
 
 
@@ -2326,7 +2362,7 @@
 <pre id="vertical_marking">
 
 
-[ 2 ] вертикальна розмітка
+<b>2. ВЕРТИКАЛЬНА РОЗМІТКА</b>
 
 
 
@@ -2400,9 +2436,7 @@
 <!-- ^.*Коментар.*\r?\n\n /  -->
 <pre id="general_provisions" class="big-fonts">
 
-
-<b>1. загальні положення</b>
-
+<b>1. Загальні положення</b>
 
 <b>1.1</b>
 
@@ -2649,9 +2683,7 @@
 
 </pre>
 <pre id="duties_and_rights_of_drivers_of_mechanical_vehicles" class="big-fonts">
-
-<b>2. обов'язки і права водіїв механічних транспортних засобів</b>
-
+<b>2. Обов'язки і права водіїв механічних транспортних засобів</b>
 
 <b>2.1</b>
 
@@ -2739,7 +2771,6 @@
 Для транспортування пошкоджених транспортних засобів залучаються лише вантажні автомобілі.
 Особа, яка скористалася транспортним засобом, повинна видати довідку із зазначенням пройденої відстані, тривалості поїздки, свого прізвища, посади, номера посвідчення, повного найменування свого підрозділу чи організації.
 </i>
-
 <b>2.8</b>
 
 Водій з інвалідністю, що керує мотоколяскою або автомобілем, позначеними розпізнавальним знаком «Водій з інвалідністю», або водій, що перевозить пасажира з інвалідністю, може відступати від вимог дорожніх знаків 3.1 "Рух заборонено", 3.2 "Рух механічних транспортних засобів заборонено", 3.35 "Стоянку заборонено", 3.36 "Стоянку заборонено в непарні числа місяця", 3.37 "Стоянку заборонено в парні числа місяця", 3.38 "Зона обмеженої стоянки", а також знака 3.34 "Зупинку заборонено" за наявності під ним таблички 7.18 "Крім осіб з інвалідністю".
