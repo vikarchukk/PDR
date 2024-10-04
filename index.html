@@ -4,29 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>pdr</title>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const loader = document.createElement('div');
-            document.body.appendChild(loader);
-            loader.classList.add('loaderCSS');
-            
-            let progress = 0.00;
-            loader.textContent = progress;
-
-            function updateLoading() {
-                progress += 0.01;
-                if (progress <= 100) {
-                    loader.textContent = progress.toFixed(2) + '%';
-                    setTimeout(updateLoading, 10);
-                } else {
-                    loader.textContent = '';
-                    loader.classList.remove('loaderCSS');
-                    loader.remove();
-                }
-            }
-            updateLoading();
-        });
-    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Geo&display=swap');
@@ -35,7 +12,33 @@
             position: absolute; left: 0; right: 0;
             height: 100vh; width: 100vw;
             display: flex; justify-content: center; align-items: center;
-            background-color: rgb(238, 238, 238); color: #0d0d0d; font-family: 'Geo'; }
+            background-color: rgb(238, 238, 238); color: #0d0d0d; font-family: monospace; font-size: 50px; }
+
+        .loader {
+            background: none repeat scroll 0 0 #ffffff;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 9999;
+        } 
+        .loader .loader_inner {
+            background-image: url("../images/preloader.gif");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-color: #fff;
+            height: 60px;
+            width: 60px;
+            margin-top: -30px;
+            margin-left: -30px;
+            left: 50%;
+            top: 50%;
+            position: absolute;
+        }
         /* загальні */
         * { font-family: 'Roboto Mono'; text-wrap: wrap; margin: 0; padding: 0; }
         body { min-width: fit-content; }
@@ -81,7 +84,7 @@
 </head>
 <body style="background-color: rgb(238, 238, 238); color: #0d0d0d;">
 <div class="progress"><div class="progress-bar"></div></div>
-<a class="up" href="#goup">up</a>
+<a class="up" href="#goup">up</a><div class="loader"><div class="loader_inner"></div></div>
 <pre>
 
 
@@ -5178,6 +5181,35 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
 
 
 </pre>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    $(window).on("load", function() {
+  $(".loader_inner").fadeOut();
+  $(".loader").delay(400).fadeOut("slow");
+});
+
+    // window.addEventListener('load', () => {
+    //     const loader = document.createElement('div');
+    //     document.body.appendChild(loader);
+    //     loader.classList.add('loaderCSS');
+        
+    //     let progress = 0.00;
+    //     loader.textContent = progress;
+
+    //     function updateLoading() {
+    //         progress += 0.01;
+    //         if (progress <= 100) {
+    //             loader.textContent = progress.toFixed(2) + '%';
+    //             setTimeout(updateLoading, 10);
+    //         } else {
+    //             loader.textContent = '';
+    //             loader.classList.remove('loaderCSS');
+    //             loader.remove();
+    //         }
+    //     }
+    //     updateLoading();
+    // });
+</script>
 <script>
 
     // знаки
