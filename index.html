@@ -5157,53 +5157,57 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
 
     var moreInfoSingsDivs = document.querySelectorAll('.sings span div');
 
+    const spanSvgs = document.querySelectorAll('.sings span');
 
-    // (async () => {
+    const parentSpans = new Map();
+    
+    spanSvgs.forEach(e => {
 
-    // })();
 
-    // document.addEventListener('DOMContentLoaded', function () {
-        const spans = document.querySelectorAll('span');
-        const parentSpans = new Map();
-        spans.forEach(span => {
-            const innerText = span.textContent.trim();
-            const match = innerText.match(/^(\d+\.\d+)\.1$/);
-            if (match) {
-                const basePattern = match[1];
-                const parentSpan = span.parentElement;
-                if (!parentSpans.has(basePattern)) { parentSpans.set(basePattern, parentSpan); }
-                span.style.textDecoration = 'underline';
-                span.style.textUnderlineOffset = '4px';
-                span.style.textDecorationThickness = '1.2px';
-                span.parentElement.style.cursor = 'pointer';
-                span.style.textDecorationColor = 'rgb(68, 103, 195)';
-                spans.forEach(s => {
+        const match = e.textContent.trim().match(/^(\d+\.\d+)\.1$/);
+
+        if (match) {
+
+            const spanPattern = match[1];
+            const parentSpan = e.parentElement;
+            
+
+            if (!parentSpans.has(spanPattern)) { parentSpans.set(spanPattern, parentSpan); }
+
+            e.style.textDecoration = 'underline';
+            e.style.textUnderlineOffset = '4px';
+            e.style.textDecorationThickness = '1.2px';
+            e.parentElement.style.cursor = 'pointer';
+            e.style.textDecorationColor = 'rgb(68, 103, 195)';
+
+            spanSvgs.forEach(s => {
+                const text = s.textContent.trim();
+                const pattern = new RegExp(`^${spanPattern}\\.([2-9]|[1-9]\\d+)$`);
+
+                if (pattern.test(text)) {
+                    const parent = s.parentElement;
+                    parent.classList.toggle('disable');
+
+                    // allSingsEnable.addEventListener('click', () => { parent.classList.remove('disable'); allSingsDisable.textContent = 'off'; allSingsEnable.textContent = '[on]'; allSingsStatus.style.color = 'rgb(72, 169, 72)'; });
+                    // allSingsDisable.addEventListener('click', () => { parent.classList.add('disable'); allSingsEnable.textContent = 'on'; allSingsDisable.textContent = '[off]'; allSingsStatus.style.color = 'rgb(197, 50, 36)'; });
+
+                    // moreInfoSingsEnable.addEventListener('click', () => { moreInfoSingsDivs.forEach(e => e.classList.add('show')); parent.classList.remove('disable'); signsInfoAlls.forEach(e => e.classList.add('signsInfoAllBtnACTIVE')); moreInfoSingsDisable.textContent = 'off'; moreInfoSingsEnable.textContent = '[on]'; moreInfoSingsStatus.style.color = 'rgb(72, 169, 72)'; allSingsDisable.textContent = 'off'; allSingsEnable.textContent = '[on]'; allSingsStatus.style.color = 'rgb(72, 169, 72)'; });
+                    // moreInfoSingsDisable.addEventListener('click', () => { moreInfoSingsDivs.forEach(e => e.classList.remove('show')); parent.classList.add('disable'); signsInfoAlls.forEach(e => e.classList.remove('signsInfoAllBtnACTIVE')); moreInfoSingsEnable.textContent = 'on'; moreInfoSingsDisable.textContent = '[off]'; moreInfoSingsStatus.style.color = 'rgb(197, 50, 36)'; allSingsEnable.textContent = 'on'; allSingsDisable.textContent = '[off]'; allSingsStatus.style.color = 'rgb(197, 50, 36)'; });
+                }
+            });
+            e.parentElement.addEventListener('click', function () {
+                spanSvgs.forEach(s => {
                     const text = s.textContent.trim();
-                    const pattern = new RegExp(`^${basePattern}\\.([2-9]|[1-9]\\d+)$`);
+                    const pattern = new RegExp(`^${spanPattern}\\.([2-9]|[1-9]\\d+)$`);
                     if (pattern.test(text)) {
                         const parent = s.parentElement;
                         parent.classList.toggle('disable');
-
-                        allSingsEnable.addEventListener('click', () => { parent.classList.remove('disable'); allSingsDisable.textContent = 'off'; allSingsEnable.textContent = '[on]'; allSingsStatus.style.color = 'rgb(72, 169, 72)'; });
-                        allSingsDisable.addEventListener('click', () => { parent.classList.add('disable'); allSingsEnable.textContent = 'on'; allSingsDisable.textContent = '[off]'; allSingsStatus.style.color = 'rgb(197, 50, 36)'; });
-
-                        moreInfoSingsEnable.addEventListener('click', () => { moreInfoSingsDivs.forEach(e => e.classList.add('show')); parent.classList.remove('disable'); signsInfoAlls.forEach(e => e.classList.add('signsInfoAllBtnACTIVE')); moreInfoSingsDisable.textContent = 'off'; moreInfoSingsEnable.textContent = '[on]'; moreInfoSingsStatus.style.color = 'rgb(72, 169, 72)'; allSingsDisable.textContent = 'off'; allSingsEnable.textContent = '[on]'; allSingsStatus.style.color = 'rgb(72, 169, 72)'; });
-                        moreInfoSingsDisable.addEventListener('click', () => { moreInfoSingsDivs.forEach(e => e.classList.remove('show')); parent.classList.add('disable'); signsInfoAlls.forEach(e => e.classList.remove('signsInfoAllBtnACTIVE')); moreInfoSingsEnable.textContent = 'on'; moreInfoSingsDisable.textContent = '[off]'; moreInfoSingsStatus.style.color = 'rgb(197, 50, 36)'; allSingsEnable.textContent = 'on'; allSingsDisable.textContent = '[off]'; allSingsStatus.style.color = 'rgb(197, 50, 36)'; });
                     }
                 });
-                span.parentElement.addEventListener('click', function () {
-                    spans.forEach(s => {
-                        const text = s.textContent.trim();
-                        const pattern = new RegExp(`^${basePattern}\\.([2-9]|[1-9]\\d+)$`);
-                        if (pattern.test(text)) {
-                            const parent = s.parentElement;
-                            parent.classList.toggle('disable');
-                        }
-                    });
-                });
-            }
-        });
-    // });
+            });
+        }
+
+    });
 
     function generateRandomString(length) {
         const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
