@@ -5141,7 +5141,9 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
 </pre>
 <script>
 
-    document.querySelectorAll('.sings span svg').forEach(e => e.style.margin = `${(90 - e.clientHeight) / 2}px 0`);
+    document.querySelectorAll('.sings span svg').forEach(e => 
+        e.style.margin = `${(90 - e.clientHeight) / 2}px 0`
+    );
 
     var signsInfoAlls = document.querySelectorAll('.signsInfoAll');
     document.querySelectorAll('.signsInfoAllBtn').forEach((e, i) => 
@@ -5151,85 +5153,87 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
     var allSingsStatus = document.getElementById('allSingsStatus');
     var allSingsEnable = document.getElementById('allSingsEnable');
     var allSingsDisable = document.getElementById('allSingsDisable');
+    allSingsEnable.addEventListener('click', () => { 
+        allSingsDisable.textContent = 'off'; 
+        allSingsEnable.textContent = '[on]'; 
+        allSingsStatus.style.color = 'rgb(72, 169, 72)'; 
+    });
+    allSingsDisable.addEventListener('click', () => { 
+        allSingsEnable.textContent = 'on'; 
+        allSingsDisable.textContent = '[off]'; 
+        allSingsStatus.style.color = 'rgb(197, 50, 36)'; 
+    });
+
     var moreInfoSingsStatus = document.getElementById('moreInfoSingsStatus'); 
     var moreInfoSingsEnable = document.getElementById('moreInfoSingsEnable'); 
     var moreInfoSingsDisable = document.getElementById('moreInfoSingsDisable');
-
     var moreInfoSingsDivs = document.querySelectorAll('.sings span div');
+    moreInfoSingsEnable.addEventListener('click', () => { 
+        moreInfoSingsDivs.forEach(e => e.classList.add('show')); 
+        signsInfoAlls.forEach(e => e.classList.add('signsInfoAllBtnACTIVE')); 
+        moreInfoSingsDisable.textContent = 'off'; 
+        moreInfoSingsEnable.textContent = '[on]'; 
+        moreInfoSingsStatus.style.color = 'rgb(72, 169, 72)'; 
 
-    const spanSvgs = document.querySelectorAll('.sings span');
+        allSingsDisable.textContent = 'off'; 
+        allSingsEnable.textContent = '[on]'; 
+        allSingsStatus.style.color = 'rgb(72, 169, 72)'; 
+    });
+    moreInfoSingsDisable.addEventListener('click', () => { 
+        moreInfoSingsDivs.forEach(e => e.classList.remove('show')); 
+        signsInfoAlls.forEach(e => e.classList.remove('signsInfoAllBtnACTIVE')); 
+        moreInfoSingsEnable.textContent = 'on'; 
+        moreInfoSingsDisable.textContent = '[off]'; 
+        moreInfoSingsStatus.style.color = 'rgb(197, 50, 36)'; 
 
-    const parentSpans = new Map();
-    
-    spanSvgs.forEach(e => {
+        allSingsEnable.textContent = 'on'; 
+        allSingsDisable.textContent = '[off]'; 
+        allSingsStatus.style.color = 'rgb(197, 50, 36)'; 
+    });
 
-
+    const spanNumber = document.querySelectorAll('.sings span span');
+    const spanGlobals = new Map();
+    spanNumber.forEach(e => {
         const match = e.textContent.trim().match(/^(\d+\.\d+)\.1$/);
-
         if (match) {
-
-            const spanPattern = match[1];
-            const parentSpan = e.parentElement;
-            
-
-            if (!parentSpans.has(spanPattern)) { parentSpans.set(spanPattern, parentSpan); }
-
-            e.style.textDecoration = 'underline';
-            e.style.textUnderlineOffset = '4px';
-            e.style.textDecorationThickness = '1.2px';
-            e.parentElement.style.cursor = 'pointer';
-            e.style.textDecorationColor = 'rgb(68, 103, 195)';
-
-            spanSvgs.forEach(s => {
-                const text = s.textContent.trim();
-                const pattern = new RegExp(`^${spanPattern}\\.([2-9]|[1-9]\\d+)$`);
-
-                if (pattern.test(text)) {
+            if (!spanGlobals.has(match[1])) { spanGlobals.set(match[1], e.parentElement); }
+            e.style.textDecoration = 'underline'; e.style.textUnderlineOffset = '4px'; e.style.textDecorationThickness = '1.2px'; e.style.textDecorationColor = 'rgb(68, 103, 195)'; e.parentElement.style.cursor = 'pointer';
+            spanNumber.forEach(s => {
+                const pattern = new RegExp(`^${match[1]}\\.([2-9]|[1-9]\\d+)$`);
+                if (pattern.test(s.textContent.trim())) {
                     const parent = s.parentElement;
                     parent.classList.toggle('disable');
-
-                    // allSingsEnable.addEventListener('click', () => { parent.classList.remove('disable'); allSingsDisable.textContent = 'off'; allSingsEnable.textContent = '[on]'; allSingsStatus.style.color = 'rgb(72, 169, 72)'; });
-                    // allSingsDisable.addEventListener('click', () => { parent.classList.add('disable'); allSingsEnable.textContent = 'on'; allSingsDisable.textContent = '[off]'; allSingsStatus.style.color = 'rgb(197, 50, 36)'; });
-
-                    // moreInfoSingsEnable.addEventListener('click', () => { moreInfoSingsDivs.forEach(e => e.classList.add('show')); parent.classList.remove('disable'); signsInfoAlls.forEach(e => e.classList.add('signsInfoAllBtnACTIVE')); moreInfoSingsDisable.textContent = 'off'; moreInfoSingsEnable.textContent = '[on]'; moreInfoSingsStatus.style.color = 'rgb(72, 169, 72)'; allSingsDisable.textContent = 'off'; allSingsEnable.textContent = '[on]'; allSingsStatus.style.color = 'rgb(72, 169, 72)'; });
-                    // moreInfoSingsDisable.addEventListener('click', () => { moreInfoSingsDivs.forEach(e => e.classList.remove('show')); parent.classList.add('disable'); signsInfoAlls.forEach(e => e.classList.remove('signsInfoAllBtnACTIVE')); moreInfoSingsEnable.textContent = 'on'; moreInfoSingsDisable.textContent = '[off]'; moreInfoSingsStatus.style.color = 'rgb(197, 50, 36)'; allSingsEnable.textContent = 'on'; allSingsDisable.textContent = '[off]'; allSingsStatus.style.color = 'rgb(197, 50, 36)'; });
+                    allSingsEnable.addEventListener('click', () => parent.classList.remove('disable') );
+                    allSingsDisable.addEventListener('click', () => parent.classList.add('disable') );
+                    moreInfoSingsEnable.addEventListener('click', () => parent.classList.remove('disable') );
+                    moreInfoSingsDisable.addEventListener('click', () => parent.classList.add('disable') );
                 }
-            });
-            e.parentElement.addEventListener('click', function () {
-                spanSvgs.forEach(s => {
-                    const text = s.textContent.trim();
-                    const pattern = new RegExp(`^${spanPattern}\\.([2-9]|[1-9]\\d+)$`);
-                    if (pattern.test(text)) {
-                        const parent = s.parentElement;
-                        parent.classList.toggle('disable');
-                    }
-                });
-            });
-        }
-
-    });
-
-    function generateRandomString(length) {
-        const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-        let result = '';
-        for (let i = 0; i < length; i++) { result += characters.charAt(Math.floor(Math.random() * characters.length)); }
-        return result;
-    }
-    document.querySelectorAll('svg').forEach((svg) => {
-        const style = svg.querySelector('style');
-        if (style) {
-            const classNames = new Set(style.innerHTML.match(/\.[a-z][a-z0-9-]*/gi));
-            classNames.forEach((className) => {
-                const randomString = generateRandomString(8);
-                const newClassName = `${className}-${randomString}`;
-                style.innerHTML = style.innerHTML.replace(new RegExp(`\\${className}`, 'g'), newClassName);
-                svg.querySelectorAll(className).forEach((element) => {
-                    element.classList.remove(className.substring(1));
-                    element.classList.add(newClassName.substring(1));
-                });
+                e.parentElement.addEventListener('click', () => s.parentElement.classList.toggle('disable') );
             });
         }
     });
+
+    // function generateRandomString(length) {
+    //     const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    //     let result = '';
+    //     for (let i = 0; i < length; i++) { result += characters.charAt(Math.floor(Math.random() * characters.length)); }
+    //     return result;
+    // }
+    // document.querySelectorAll('svg').forEach(e => {
+    //     const style = e.querySelector('style');
+    //     if (style) {
+    //         const classNames = new Set(style.innerHTML.match(/\.[a-z][a-z0-9-]*/gi));
+    //         classNames.forEach((className) => {
+    //             const randomString = generateRandomString(8);
+    //             const newClassName = `${className}-${randomString}`;
+    //             style.innerHTML = style.innerHTML.replace(new RegExp(`\\${className}`, 'g'), newClassName);
+    //             e.querySelectorAll(className).forEach((element) => {
+    //                 element.classList.remove(className.substring(1));
+    //                 element.classList.add(newClassName.substring(1));
+    //             });
+    //         });
+    //     }
+    // });
 
     document.getElementById("themes").addEventListener("click", function() {
         var body = document.body; 
