@@ -24,9 +24,9 @@
         .sings > span.disable { display: none; }
         svg { max-height: 90px; }
         .sings span div { margin-top: 5px; text-align: left; border: 2px dashed #0d0d0d; padding: 3px 5px 3px 5px; display: none; }
-        .signsInfoAbAll { border: 2px dashed #0d0d0d; padding: 7px 10px 7px 10px; display: none; }
-        .signsInfoAbAll.signsInfoAbAllBtnACTIVE { display: block; }
-        .signsInfoAbAllBtn { cursor: pointer; }
+        .signsInfoAll { border: 2px dashed #0d0d0d; padding: 7px 10px 7px 10px; display: none; }
+        .signsInfoAll.signsInfoAllBtnACTIVE { display: block; margin-bottom: 17px; }
+        .signsInfoAllBtn { cursor: pointer; }
         .sings span div.show { display: block; }
         .add-square::after { content: "*"; position: absolute; top: -17.5px; right: 0px; font-size: 15px; color: rgb(68, 103, 195); }
         .link { color: rgb(68, 103, 195); }
@@ -233,10 +233,10 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
 
 
 
-<b class="signsInfoAbAllBtn">1. ПОПЕРЕДЖУВАЛЬНІ ЗНА<span class="blu">КИ</span></b>
+<b class="signsInfoAllBtn">1. ПОПЕРЕДЖУВАЛЬНІ ЗНА<span class="blu">КИ</span></b>
 
 
-<div class="signsInfoAbAll">Попереджувальні знаки, крім знаків 1.4.1-1.4.3, 1.29-1.31.6, установлюються поза населеними пунктами на відстані 150-300 м, у населених пунктах на відстані 50-100 м до початку небезпечної ділянки. У разі потреби знаки встановлюються і на іншій відстані, яка зазначається на табличці 7.1.1.
+<div class="signsInfoAll">Попереджувальні знаки, крім знаків 1.4.1-1.4.3, 1.29-1.31.6, установлюються поза населеними пунктами на відстані 150-300 м, у населених пунктах на відстані 50-100 м до початку небезпечної ділянки. У разі потреби знаки встановлюються і на іншій відстані, яка зазначається на табличці 7.1.1.
 
 Знаки 1.23.3 і 1.23.4 встановлюються на відстані між приляганнями другорядних доріг менше ніж 50 м у населених пунктах і 100 м поза ними.
 
@@ -5141,13 +5141,28 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
 </pre>
 <script>
 
-    var signsInfoAbAlls = document.querySelectorAll('.signsInfoAbAll');
-    document.querySelectorAll('.signsInfoAbAllBtn').forEach((e, i) => { e.addEventListener('click', () => { signsInfoAbAlls[i].classList.toggle('signsInfoAbAllBtnACTIVE'); }) })
+    document.querySelectorAll('.sings span svg').forEach(e => e.style.margin = `${(90 - e.clientHeight) / 2}px 0`);
 
-    var allSingsStatus = document.getElementById('allSingsStatus'); var allSingsEnable = document.getElementById('allSingsEnable'); var allSingsDisable = document.getElementById('allSingsDisable');
-    var moreInfoSingsStatus = document.getElementById('moreInfoSingsStatus'); var moreInfoSingsEnable = document.getElementById('moreInfoSingsEnable'); var moreInfoSingsDisable = document.getElementById('moreInfoSingsDisable'); var moreInfoSingsDivs = document.querySelectorAll('.sings span div');
+    var signsInfoAlls = document.querySelectorAll('.signsInfoAll');
+    document.querySelectorAll('.signsInfoAllBtn').forEach((e, i) => 
+        e.addEventListener('click', () => signsInfoAlls[i].classList.toggle('signsInfoAllBtnACTIVE'))
+    );
 
-    document.addEventListener('DOMContentLoaded', function () {
+    var allSingsStatus = document.getElementById('allSingsStatus');
+    var allSingsEnable = document.getElementById('allSingsEnable');
+    var allSingsDisable = document.getElementById('allSingsDisable');
+    var moreInfoSingsStatus = document.getElementById('moreInfoSingsStatus'); 
+    var moreInfoSingsEnable = document.getElementById('moreInfoSingsEnable'); 
+    var moreInfoSingsDisable = document.getElementById('moreInfoSingsDisable');
+
+    var moreInfoSingsDivs = document.querySelectorAll('.sings span div');
+
+
+    // (async () => {
+
+    // })();
+
+    // document.addEventListener('DOMContentLoaded', function () {
         const spans = document.querySelectorAll('span');
         const parentSpans = new Map();
         spans.forEach(span => {
@@ -5172,8 +5187,8 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
                         allSingsEnable.addEventListener('click', () => { parent.classList.remove('disable'); allSingsDisable.textContent = 'off'; allSingsEnable.textContent = '[on]'; allSingsStatus.style.color = 'rgb(72, 169, 72)'; });
                         allSingsDisable.addEventListener('click', () => { parent.classList.add('disable'); allSingsEnable.textContent = 'on'; allSingsDisable.textContent = '[off]'; allSingsStatus.style.color = 'rgb(197, 50, 36)'; });
 
-                        moreInfoSingsEnable.addEventListener('click', () => { moreInfoSingsDivs.forEach(e => e.classList.add('show')); parent.classList.remove('disable'); signsInfoAbAlls.forEach(e => e.classList.add('signsInfoAbAllBtnACTIVE')); moreInfoSingsDisable.textContent = 'off'; moreInfoSingsEnable.textContent = '[on]'; moreInfoSingsStatus.style.color = 'rgb(72, 169, 72)'; allSingsDisable.textContent = 'off'; allSingsEnable.textContent = '[on]'; allSingsStatus.style.color = 'rgb(72, 169, 72)'; });
-                        moreInfoSingsDisable.addEventListener('click', () => { moreInfoSingsDivs.forEach(e => e.classList.remove('show')); parent.classList.add('disable'); signsInfoAbAlls.forEach(e => e.classList.remove('signsInfoAbAllBtnACTIVE')); moreInfoSingsEnable.textContent = 'on'; moreInfoSingsDisable.textContent = '[off]'; moreInfoSingsStatus.style.color = 'rgb(197, 50, 36)'; allSingsEnable.textContent = 'on'; allSingsDisable.textContent = '[off]'; allSingsStatus.style.color = 'rgb(197, 50, 36)'; });
+                        moreInfoSingsEnable.addEventListener('click', () => { moreInfoSingsDivs.forEach(e => e.classList.add('show')); parent.classList.remove('disable'); signsInfoAlls.forEach(e => e.classList.add('signsInfoAllBtnACTIVE')); moreInfoSingsDisable.textContent = 'off'; moreInfoSingsEnable.textContent = '[on]'; moreInfoSingsStatus.style.color = 'rgb(72, 169, 72)'; allSingsDisable.textContent = 'off'; allSingsEnable.textContent = '[on]'; allSingsStatus.style.color = 'rgb(72, 169, 72)'; });
+                        moreInfoSingsDisable.addEventListener('click', () => { moreInfoSingsDivs.forEach(e => e.classList.remove('show')); parent.classList.add('disable'); signsInfoAlls.forEach(e => e.classList.remove('signsInfoAllBtnACTIVE')); moreInfoSingsEnable.textContent = 'on'; moreInfoSingsDisable.textContent = '[off]'; moreInfoSingsStatus.style.color = 'rgb(197, 50, 36)'; allSingsEnable.textContent = 'on'; allSingsDisable.textContent = '[off]'; allSingsStatus.style.color = 'rgb(197, 50, 36)'; });
                     }
                 });
                 span.parentElement.addEventListener('click', function () {
@@ -5188,7 +5203,7 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
                 });
             }
         });
-    });
+    // });
 
     function generateRandomString(length) {
         const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
@@ -5219,11 +5234,11 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
         if (body.style.backgroundColor === 'rgb(238, 238, 238)') {
             body.style.backgroundColor = '#0d0d0d'; body.style.color = '#EEEEEE';
             probar.style.backgroundColor = '#EEEEEE'; divMoreInfoThems.forEach(e => e.style.borderColor = '#EEEEEE')
-            signsInfoAbAlls.forEach(e => e.style.borderColor = '#EEEEEE');
+            signsInfoAlls.forEach(e => e.style.borderColor = '#EEEEEE');
         } else {
             body.style.backgroundColor = '#EEEEEE'; body.style.color = '#0d0d0d';
             probar.style.backgroundColor = '#0d0d0d'; divMoreInfoThems.forEach(e => e.style.borderColor = '#0d0d0d')
-            signsInfoAbAlls.forEach(e => e.style.borderColor = '#0d0d0d');
+            signsInfoAlls.forEach(e => e.style.borderColor = '#0d0d0d');
         }
     });
 
@@ -5293,8 +5308,6 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
     var svgStatus = document.getElementById('svgStatus'); var svgEnable = document.getElementById('svgEnable'); var svgDisable = document.getElementById('svgDisable'); var svgs = document.querySelectorAll('svg');
     svgEnable.addEventListener('click', function() { svgs.forEach(function(svg) { svg.style.opacity = '1'; }); svgDisable.textContent = 'off'; svgEnable.textContent = '[on]'; svgStatus.style.color = 'rgb(72, 169, 72)'; });
     svgDisable.addEventListener('click', function() { svgs.forEach(function(svg) { svg.style.opacity = '0'; }); svgEnable.textContent = 'on'; svgDisable.textContent = '[off]'; svgStatus.style.color = 'rgb(197, 50, 36)'; });
-
-    document.querySelectorAll('.sings span svg').forEach(e => e.style.margin = `${(90 - e.clientHeight) / 2}px 0`);
 
     document.querySelectorAll('.sings span').forEach(e => { if(e.nextElementSibling && e.nextElementSibling.tagName === 'DIV') { e.parentElement.classList.add('add-square'); e.parentElement.style.position = 'relative'; e.parentElement.style.cursor = 'pointer'; e.parentElement.addEventListener('click', () => e.nextElementSibling.classList.toggle('show')) } });
 
