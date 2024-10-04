@@ -4,9 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <title>pdr</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.createElement('div');
+            document.body.appendChild(loader);
+            loader.classList.add('loaderCSS');
+            
+            let progress = 0.00;
+            loader.textContent = progress;
+
+            function updateLoading() {
+                progress += 0.01;
+                if (progress <= 100) {
+                    loader.textContent = progress.toFixed(2) + '%';
+                    setTimeout(updateLoading, 10);
+                } else {
+                    loader.textContent = '';
+                    loader.classList.remove('loaderCSS');
+                    loader.remove();
+                }
+            }
+            updateLoading();
+        });
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Geo&display=swap');
+        /* загрузка */
+        .loaderCSS {
+            position: absolute; left: 0; right: 0;
+            height: 100vh; width: 100vw;
+            display: flex; justify-content: center; align-items: center;
+            background-color: rgb(238, 238, 238); color: #0d0d0d; font-family: 'Geo'; }
         /* загальні */
         * { font-family: 'Roboto Mono'; text-wrap: wrap; margin: 0; padding: 0; }
         body { min-width: fit-content; }
