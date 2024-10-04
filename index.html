@@ -7,37 +7,47 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Geo&display=swap');
+        /* загальні */
         * { font-family: 'Roboto Mono'; text-wrap: wrap; margin: 0; padding: 0; }
         body { min-width: fit-content; }
         a { color: inherit; text-decoration: none; }
-        .big-fonts, .big-fonts b { font-size: 15px; line-height: 22.5px; }
         pre { font-size: 10px; letter-spacing: 0.75px;
-              margin: 0 auto; width: 956px; padding: 0 50px; }
+            margin: 0 auto; width: 956px; padding: 0 50px; }
+        .link { color: rgb(68, 103, 195); }
+        .blue { color: rgb(68, 103, 195); }
+        /* загальні кнопки */
+        .mainBtnOnOff { cursor: pointer; color:  rgb(68, 103, 195); }
+        /* пдр правила */
+        .big-fonts, .big-fonts b { font-size: 15px; line-height: 22.5px; }
+        /* лінія прогресу */
         .progress { width: 100%; height: 2px; position: fixed; }
         .progress-bar { width: 0%; height: 2px; background-color: #0d0d0d; }
+        /* кнопка верх */
         .up { width: 100px; height: 100px; font-size: 100px; font-family: "Geo";
               position: fixed; bottom: 50px; right: 40px;
               display: flex; justify-content: center; align-items: center; color: rgb(68, 103, 195); }
+        /* знаки розташування */
         .sings { display: flex; flex-wrap: wrap; gap: 20px; width: 956px; }
         .sings > span { display: flex; flex-direction: column; align-items: center; gap: 10px;
                         width: 100px; padding: 1px; text-align: center; text-transform: lowercase; }
         .sings > span.disable { display: none; }
         svg { max-height: 90px; }
+        /* знаки додаткова інформація */
         .sings span div { margin-top: 5px; text-align: left; border: 2px dashed #0d0d0d; padding: 3px 5px 3px 5px; display: none; }
         .signsInfoAll { border: 2px dashed #0d0d0d; padding: 7px 10px 7px 10px; display: none; }
         .signsInfoAll.signsInfoAllBtnACTIVE { display: block; margin-bottom: 17px; }
         .signsInfoAllBtn { cursor: pointer; }
         .sings span div.show { display: block; }
         .add-square::after { content: "*"; position: absolute; top: -17.5px; right: 0px; font-size: 15px; color: rgb(68, 103, 195); }
-        .link { color: rgb(68, 103, 195); }
+        /* зображення і відео */
         img { max-width: 100%; }
         .yt { width: 100%; aspect-ratio: 16/9; overflow: hidden; pointer-events: none; }
         .player { width: 300%; height: 100%; margin-left: -100%; }
-        .sign_icon { height: 2em; vertical-align: middle; }
         .viewCNT { display: none; }
         .viewCNT.active { display: block; padding: 7px 0; }
         .viewBTN { cursor: pointer; font-style: italic; }
-        .blu {color: rgb(68, 103, 195);}
+        /* іконки знаків в правилах пдр */
+        .sign_icon { height: 2em; vertical-align: middle; }
     </style>
 </head>
 <body style="background-color: rgb(238, 238, 238); color: #0d0d0d;">
@@ -72,22 +82,22 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
 
 
 
-<span id="themes" style="cursor: pointer;"><span style="color: rgb(68, 103, 195);">змінити тему [</span> <span style="color: rgb(238, 238, 238);">світла</span> / <span style="color: #0d0d0d;">темна</span> <span style="color: rgb(68, 103, 195);">]</span> <<<</span>
+<span id="themes" style="cursor: pointer;"><span class="blue">змінити тему [</span> <span style="color: rgb(238, 238, 238);">світла</span> / <span style="color: #0d0d0d;">темна</span> <span class="blue">]</span> <<<</span>
 
 
-<span id="svgStatus" style="color: rgb(72, 169, 72)">|</span> знаки - <span id="svgEnable" style="cursor: pointer; color: rgb(68, 103, 195);">[on]</span> / <span id="svgDisable" style="cursor: pointer; color: rgb(68, 103, 195);">off</span>
+<span id="svgStatus" style="color: rgb(72, 169, 72)">|</span> знаки - <span id="svgEnable" class="mainBtnOnOff">[on]</span> / <span id="svgDisable" class="mainBtnOnOff">off</span>
 
-<span id="imageStatus" style="color: rgb(197, 50, 36)">|</span> зображення - <span id="imageEnable" style="cursor: pointer; color: rgb(68, 103, 195);">on</span> / <span id="imageDisable" style="cursor: pointer; color: rgb(68, 103, 195);">[off]</span>
+<span id="imageStatus" style="color: rgb(197, 50, 36)">|</span> зображення - <span id="imageEnable" class="mainBtnOnOff">on</span> / <span id="imageDisable" class="mainBtnOnOff">[off]</span>
 
-<span id="videoStatus" style="color: rgb(197, 50, 36)">|</span> відео - <span id="videoEnable" style="cursor: pointer; color: rgb(68, 103, 195);">on</span> / <span id="videoDisable" style="cursor: pointer; color: rgb(68, 103, 195);">[off]</span>
-
-
-<span id="allSingsStatus" style="color: rgb(197, 50, 36)">|</span> відображеня всіх знаків - <span id="allSingsEnable" style="cursor: pointer; color: rgb(68, 103, 195);">on</span> / <span id="allSingsDisable" style="cursor: pointer; color: rgb(68, 103, 195);">[off]</span>
-
-<span id="moreInfoSingsStatus" style="color: rgb(197, 50, 36)">|</span> інформація про знаки - <span id="moreInfoSingsEnable" style="cursor: pointer; color: rgb(68, 103, 195);">on</span> / <span id="moreInfoSingsDisable" style="cursor: pointer; color: rgb(68, 103, 195);">[off]</span>
+<span id="videoStatus" style="color: rgb(197, 50, 36)">|</span> відео - <span id="videoEnable" class="mainBtnOnOff">on</span> / <span id="videoDisable" class="mainBtnOnOff">[off]</span>
 
 
-<i><span style="color: rgb(68, 103, 195);">* все що синє клікабельне</span></i>
+<span id="allSingsStatus" style="color: rgb(197, 50, 36)">|</span> відображеня всіх знаків - <span id="allSingsEnable" class="mainBtnOnOff">on</span> / <span id="allSingsDisable" class="mainBtnOnOff">[off]</span>
+
+<span id="moreInfoSingsStatus" style="color: rgb(197, 50, 36)">|</span> інформація про знаки - <span id="moreInfoSingsEnable" class="mainBtnOnOff">on</span> / <span id="moreInfoSingsDisable" class="mainBtnOnOff">[off]</span>
+
+
+<i><span class="blue">* все що синє клікабельне</span></i>
 
 
 <b>ДЖЕРЕЛА</b>
@@ -95,145 +105,145 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
 
 <b>сайти</b>
 
-<a href="https://vodiy.ua/" target="_blank"><b style="color: rgb(68, 103, 195);">-</b> vodiy.ua</a> <a class="link" href="https://vodiy.ua/pdr/" target="_blank">теорія</a> / <a class="link" href="https://vodiy.ua/pdr/test/" target="_blank">тести</a>
+<a href="https://vodiy.ua/" target="_blank"><b class="blue">-</b> vodiy.ua</a> <a class="link" href="https://vodiy.ua/pdr/" target="_blank">теорія</a> / <a class="link" href="https://vodiy.ua/pdr/test/" target="_blank">тести</a>
 
-<a href="https://manualov.net/" target="_blank"><b style="color: rgb(68, 103, 195);">-</b> manualov.net</a> <a class="link" href="https://manualov.net/pravyla-dorozhnogo-ruhu-ukrainy.php" target="_blank">теорія</a> / <a class="link" href="https://manualov.net/books.php" target="_blank">книги</a> / <a class="link" href="https://manualov.net/online-test-pdr.php" target="_blank">тести</a> <!-- MAN_BASIC / sihaca2371@rinseart.com - pdr39816318 / mega.nz/file/SNth3aKb#Eki8ISZ0iL9MsCxL_W_IM36NXI8fiJh00wm-EzWOkjU -->
+<a href="https://manualov.net/" target="_blank"><b class="blue">-</b> manualov.net</a> <a class="link" href="https://manualov.net/pravyla-dorozhnogo-ruhu-ukrainy.php" target="_blank">теорія</a> / <a class="link" href="https://manualov.net/books.php" target="_blank">книги</a> / <a class="link" href="https://manualov.net/online-test-pdr.php" target="_blank">тести</a> <!-- MAN_BASIC / sihaca2371@rinseart.com - pdr39816318 / mega.nz/file/SNth3aKb#Eki8ISZ0iL9MsCxL_W_IM36NXI8fiJh00wm-EzWOkjU -->
 
-<a href="https://green-way.com.ua/" target="_blank"><b style="color: rgb(68, 103, 195);">-</b> green-way.com.ua</a> <a class="link" href="https://green-way.com.ua/uk/dovidniki/" target="_blank">теорія</a> / <a class="link" href="https://green-way.com.ua/uk/obuchenie/all-courses/" target="_blank">курси</a> / <a class="link" href="https://green-way.com.ua/uk/test-pdd/sections" target="_blank">тести</a>
+<a href="https://green-way.com.ua/" target="_blank"><b class="blue">-</b> green-way.com.ua</a> <a class="link" href="https://green-way.com.ua/uk/dovidniki/" target="_blank">теорія</a> / <a class="link" href="https://green-way.com.ua/uk/obuchenie/all-courses/" target="_blank">курси</a> / <a class="link" href="https://green-way.com.ua/uk/test-pdd/sections" target="_blank">тести</a>
 
-<a href="https://pdr.infotech.gov.ua/" target="_blank"><b style="color: rgb(68, 103, 195);">-</b> pdr.infotech.gov.ua</a> <a class="link" href="https://pdr.infotech.gov.ua/theory/" target="_blank">теорія</a> / <a class="link" href="https://pdr.infotech.gov.ua/tests/" target="_blank">тести</a>
+<a href="https://pdr.infotech.gov.ua/" target="_blank"><b class="blue">-</b> pdr.infotech.gov.ua</a> <a class="link" href="https://pdr.infotech.gov.ua/theory/" target="_blank">теорія</a> / <a class="link" href="https://pdr.infotech.gov.ua/tests/" target="_blank">тести</a>
 
-<a href="https://dai.eu.com/" target="_blank"><b style="color: rgb(68, 103, 195);">-</b> dai.eu.com</a> <a class="link" href="https://dai.eu.com/pravila-dorozhnogo-ruxu-ukrani-2010/" target="_blank">теорія</a> / <a class="link" href="https://dai.eu.com/pdr-exam-new/" target="_blank">тести</a>
+<a href="https://dai.eu.com/" target="_blank"><b class="blue">-</b> dai.eu.com</a> <a class="link" href="https://dai.eu.com/pravila-dorozhnogo-ruxu-ukrani-2010/" target="_blank">теорія</a> / <a class="link" href="https://dai.eu.com/pdr-exam-new/" target="_blank">тести</a>
 
-<a href="https://avto-ekzamen.org.ua/" target="_blank"><b style="color: rgb(68, 103, 195);">-</b> avto-ekzamen.org.ua</a> <a class="link" href="https://avto-ekzamen.org.ua/" target="_blank">тести</a>
+<a href="https://avto-ekzamen.org.ua/" target="_blank"><b class="blue">-</b> avto-ekzamen.org.ua</a> <a class="link" href="https://avto-ekzamen.org.ua/" target="_blank">тести</a>
 
 <b>інші</b>
 
-<a href="https://en.wikipedia.org/wiki/Comparison_of_European_road_signs" target="_blank"><b style="color: rgb(68, 103, 195);">-</b> wikipedia.org / <i>знаки</i></a>
+<a href="https://en.wikipedia.org/wiki/Comparison_of_European_road_signs" target="_blank"><b class="blue">-</b> wikipedia.org / <i>знаки</i></a>
 
-<a href="https://youtube.com/playlist?list=PLEm1K-884zDCaWV_M8y0IaD9tnfbzb-dp&si=0tYHXZVPOLuOZjYi" target="_blank"><b style="color: rgb(68, 103, 195);">-</b> "О24" Denis lector / <i>відео курс</i></a>
+<a href="https://youtube.com/playlist?list=PLEm1K-884zDCaWV_M8y0IaD9tnfbzb-dp&si=0tYHXZVPOLuOZjYi" target="_blank"><b class="blue">-</b> "О24" Denis lector / <i>відео курс</i></a>
 
-<a href="https://skmnvk.ucoz.ru/pidruchniki/Vodij/pdr_2014.pdf" target="_blank"><b style="color: rgb(68, 103, 195);">-</b> пдр 2014 / <i>книга</i></a>
+<a href="https://skmnvk.ucoz.ru/pidruchniki/Vodij/pdr_2014.pdf" target="_blank"><b class="blue">-</b> пдр 2014 / <i>книга</i></a>
 
 <b>ігри</b>
 
-<a href="https://store.steampowered.com/app/493490/City_Car_Driving/" target="_blank"><b style="color: rgb(68, 103, 195);">-</b> city car driving</a>
+<a href="https://store.steampowered.com/app/493490/City_Car_Driving/" target="_blank"><b class="blue">-</b> city car driving</a>
 
-<a href="https://store.steampowered.com/app/232010/Euro_Truck_Simulator/" target="_blank"><b style="color: rgb(68, 103, 195);">-</b> euro truck simulator</a>
+<a href="https://store.steampowered.com/app/232010/Euro_Truck_Simulator/" target="_blank"><b class="blue">-</b> euro truck simulator</a>
 
-<a href="https://store.steampowered.com/app/320300/Car_Mechanic_Simulator_2015/" target="_blank"><b style="color: rgb(68, 103, 195);">-</b> car mechanic simulator 2015</a>
+<a href="https://store.steampowered.com/app/320300/Car_Mechanic_Simulator_2015/" target="_blank"><b class="blue">-</b> car mechanic simulator 2015</a>
 
 <b>для швеції</b>
 
-<a href="https://swedenpdd.ru/" target="_blank"><b style="color: rgb(68, 103, 195);">-</b> swedenpdd.ru</a> <a class="link" href="https://swedenpdd.ru/%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE-%D1%83%D0%B4%D0%BE%D1%81%D1%82%D0%BE%D0%B2%D0%B5%D1%80%D0%B5%D0%BD" target="_blank">старт</a> / <a class="link" href="https://swedenpdd.ru/%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE-%D0%BB%D0%B5%D0%BA%D1%86%D0%B8%D0%B8" target="_blank">курс</a> <!-- <b>-</b> <a href="https://teoria.se/" target="_blank">teoria.se</a> -->
+<a href="https://swedenpdd.ru/" target="_blank"><b class="blue">-</b> swedenpdd.ru</a> <a class="link" href="https://swedenpdd.ru/%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE-%D1%83%D0%B4%D0%BE%D1%81%D1%82%D0%BE%D0%B2%D0%B5%D1%80%D0%B5%D0%BD" target="_blank">старт</a> / <a class="link" href="https://swedenpdd.ru/%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE-%D0%BB%D0%B5%D0%BA%D1%86%D0%B8%D0%B8" target="_blank">курс</a> <!-- <b>-</b> <a href="https://teoria.se/" target="_blank">teoria.se</a> -->
 <span id="goup"></span>
 
 <b>ЗНАКИ</b>
 
 
-<b>1.</b> <a href="#warning">Попереджуваль<span style="color: rgb(68, 103, 195);">ні</span></a>
+<b>1.</b> <a href="#warning">Попереджуваль<span class="blue">ні</span></a>
 
-<b>2.</b> <a href="#priority">Пріоритет<span style="color: rgb(68, 103, 195);">ні</span></a>
+<b>2.</b> <a href="#priority">Пріоритет<span class="blue">ні</span></a>
 
-<b>3.</b> <a href="#prohibitory">Заборон<span style="color: rgb(68, 103, 195);">ні</span></a>
+<b>3.</b> <a href="#prohibitory">Заборон<span class="blue">ні</span></a>
 
-<b>4.</b> <a href="#mandatory">Наказо<span style="color: rgb(68, 103, 195);">ві</span></a>
+<b>4.</b> <a href="#mandatory">Наказо<span class="blue">ві</span></a>
 
-<b>5.</b> <a href="#information">Інформаційно-вказів<span style="color: rgb(68, 103, 195);">ні</span></a>
+<b>5.</b> <a href="#information">Інформаційно-вказів<span class="blue">ні</span></a>
 
-<b>6.</b> <a href="#service">Сервіс<span style="color: rgb(68, 103, 195);">ні</span></a>
+<b>6.</b> <a href="#service">Сервіс<span class="blue">ні</span></a>
 
-<b>7.</b> <a href="#additional_plates">Додатко<span style="color: rgb(68, 103, 195);">ві</span></a>
+<b>7.</b> <a href="#additional_plates">Додатко<span class="blue">ві</span></a>
 
 
-<b>8.</b> <a href="#signs_on_cars">Розпізнаваль<span style="color: rgb(68, 103, 195);">ні</span></a>
+<b>8.</b> <a href="#signs_on_cars">Розпізнаваль<span class="blue">ні</span></a>
 
 
 <b>РОЗМІТКИ</b>
 
 
-<b>1.</b> <a href="#horizontal_marking">Горизонталь<span style="color: rgb(68, 103, 195);">на</span></a>
+<b>1.</b> <a href="#horizontal_marking">Горизонталь<span class="blue">на</span></a>
 
-<b>2.</b> <a href="#vertical_marking">Вертикаль<span style="color: rgb(68, 103, 195);">на</span></a>
+<b>2.</b> <a href="#vertical_marking">Вертикаль<span class="blue">на</span></a>
 
 
 <b>ПРАВИЛА ДОРОЖНЬОГО РУХУ</b>
 
 
-<b>1.</b> <a href="#general_provisions">Загальні положен<span style="color: rgb(68, 103, 195);">ня</span></a>
+<b>1.</b> <a href="#general_provisions">Загальні положен<span class="blue">ня</span></a>
 
-<b>2.</b> <a href="#duties_and_rights_of_drivers_of_mechanical_vehicles">Обов'язки і права водіїв механічних транспортних засоб<span style="color: rgb(68, 103, 195);">ів</span></a>
+<b>2.</b> <a href="#duties_and_rights_of_drivers_of_mechanical_vehicles">Обов'язки і права водіїв механічних транспортних засоб<span class="blue">ів</span></a>
 
-<b>3.</b> <a href="#movement_of_vehicles_with_special_signals">Рух транспортних засобів зі спеціальними сигнала<span style="color: rgb(68, 103, 195);">ми</span></a>
+<b>3.</b> <a href="#movement_of_vehicles_with_special_signals">Рух транспортних засобів зі спеціальними сигнала<span class="blue">ми</span></a>
 
-<b>4.</b> <a href="#duties_and_rights_of_pedestrians">Обов'язки та права пішоход<span style="color: rgb(68, 103, 195);">ів</span></a>
+<b>4.</b> <a href="#duties_and_rights_of_pedestrians">Обов'язки та права пішоход<span class="blue">ів</span></a>
 
-<b>5.</b> <a href="#obligations_and_rights_of_passengers">Обов'язки та права пасажир<span style="color: rgb(68, 103, 195);">ів</span></a>
+<b>5.</b> <a href="#obligations_and_rights_of_passengers">Обов'язки та права пасажир<span class="blue">ів</span></a>
 
-<b>6.</b> <a href="#requirements_for_cyclists">Вимоги до велосипедист<span style="color: rgb(68, 103, 195);">ів</span></a>
+<b>6.</b> <a href="#requirements_for_cyclists">Вимоги до велосипедист<span class="blue">ів</span></a>
 
-<b>7.</b> <a href="#requirements_for_persons_who_drive_mass_transport_and_animal_drivers">Вимоги до осіб, які керують гужовим транспортом та погоничів твар<span style="color: rgb(68, 103, 195);">ин</span></a>
+<b>7.</b> <a href="#requirements_for_persons_who_drive_mass_transport_and_animal_drivers">Вимоги до осіб, які керують гужовим транспортом та погоничів твар<span class="blue">ин</span></a>
 
-<b>8.</b> <a href="#regulation_of_traffic">Регулювання дорожнього ру<span style="color: rgb(68, 103, 195);">ху</span></a>
+<b>8.</b> <a href="#regulation_of_traffic">Регулювання дорожнього ру<span class="blue">ху</span></a>
 
-<b>9.</b> <a href="#warning_signals">Попереджувальні сигна<span style="color: rgb(68, 103, 195);">ли</span></a>
+<b>9.</b> <a href="#warning_signals">Попереджувальні сигна<span class="blue">ли</span></a>
 
-<b>10.</b> <a href="#beginning_of_movement_and_changing_its_direction">Початок руху та зміна його напрям<span style="color: rgb(68, 103, 195);">ку</span></a>
+<b>10.</b> <a href="#beginning_of_movement_and_changing_its_direction">Початок руху та зміна його напрям<span class="blue">ку</span></a>
 
-<b>11.</b> <a href="#location_of_vehicles_on_the_road">Розташування транспортних засобів на доро<span style="color: rgb(68, 103, 195);">зі</span></a>
+<b>11.</b> <a href="#location_of_vehicles_on_the_road">Розташування транспортних засобів на доро<span class="blue">зі</span></a>
 
-<b>12.</b> <a href="#speed_of_movement">Швидкість ру<span style="color: rgb(68, 103, 195);">ху</span></a>
+<b>12.</b> <a href="#speed_of_movement">Швидкість ру<span class="blue">ху</span></a>
 
-<b>13.</b> <a href="#distance_interval_oncoming_departure">Дистанція, інтервал, зустрічний роз'ї<span style="color: rgb(68, 103, 195);">зд</span></a>
+<b>13.</b> <a href="#distance_interval_oncoming_departure">Дистанція, інтервал, зустрічний роз'ї<span class="blue">зд</span></a>
 
-<b>14.</b> <a href="#overtaking">Обг<span style="color: rgb(68, 103, 195);">ін</span></a>
+<b>14.</b> <a href="#overtaking">Обг<span class="blue">ін</span></a>
 
-<b>15.</b> <a href="#stop_and_parking">Зупинка та стоян<span style="color: rgb(68, 103, 195);">ка</span></a>
+<b>15.</b> <a href="#stop_and_parking">Зупинка та стоян<span class="blue">ка</span></a>
 
-<b>16.</b> <a href="#driving_through_the_intersection">Проїзд перехрес<span style="color: rgb(68, 103, 195);">ть</span></a>
+<b>16.</b> <a href="#driving_through_the_intersection">Проїзд перехрес<span class="blue">ть</span></a>
 
-<b>17.</b> <a href="#advantages_of_route_vehicles">Переваги маршрутних транспортних засоб<span style="color: rgb(68, 103, 195);">ів</span></a>
+<b>17.</b> <a href="#advantages_of_route_vehicles">Переваги маршрутних транспортних засоб<span class="blue">ів</span></a>
 
-<b>18.</b> <a href="#passage_of_pedestrian_crossings_and_vehicle_stops">Проїзд пішохідних переходів та зупинок транспортних засоб<span style="color: rgb(68, 103, 195);">ів</span></a>
+<b>18.</b> <a href="#passage_of_pedestrian_crossings_and_vehicle_stops">Проїзд пішохідних переходів та зупинок транспортних засоб<span class="blue">ів</span></a>
 
-<b>19.</b> <a href="#use_of_external_lighting_devices">Користування зовнішніми світловими прилада<span style="color: rgb(68, 103, 195);">ми</span></a>
+<b>19.</b> <a href="#use_of_external_lighting_devices">Користування зовнішніми світловими прилада<span class="blue">ми</span></a>
 
-<b>20.</b> <a href="#traffic_through_railway_crossings">Рух через залізничні переїз<span style="color: rgb(68, 103, 195);">ди</span></a>
+<b>20.</b> <a href="#traffic_through_railway_crossings">Рух через залізничні переїз<span class="blue">ди</span></a>
 
-<b>21.</b> <a href="#transportation_of_passengers">Перевезення пасажир<span style="color: rgb(68, 103, 195);">ів</span></a>
+<b>21.</b> <a href="#transportation_of_passengers">Перевезення пасажир<span class="blue">ів</span></a>
 
-<b>22.</b> <a href="#cargo_transportation">Перевезення ванта<span style="color: rgb(68, 103, 195);">жу</span></a>
+<b>22.</b> <a href="#cargo_transportation">Перевезення ванта<span class="blue">жу</span></a>
 
-<b>23.</b> <a href="#towing_and_operation_of_transport_trains">Буксирування та експлуатація транспортних состав<span style="color: rgb(68, 103, 195);">ів</span></a>
+<b>23.</b> <a href="#towing_and_operation_of_transport_trains">Буксирування та експлуатація транспортних состав<span class="blue">ів</span></a>
 
-<b>24.</b> <a href="#training_ride">Навчальна їз<span style="color: rgb(68, 103, 195);">да</span></a>
+<b>24.</b> <a href="#training_ride">Навчальна їз<span class="blue">да</span></a>
 
-<b>25.</b> <a href="#movement_of_vehicles_in_convoys">Рух транспортних засобів у колон<span style="color: rgb(68, 103, 195);">ах</span></a>
+<b>25.</b> <a href="#movement_of_vehicles_in_convoys">Рух транспортних засобів у колон<span class="blue">ах</span></a>
 
-<b>26.</b> <a href="#traffic_in_residential_and_pedestrian_areas">Рух у житловій та пішохідній зо<span style="color: rgb(68, 103, 195);">ні</span></a>
+<b>26.</b> <a href="#traffic_in_residential_and_pedestrian_areas">Рух у житловій та пішохідній зо<span class="blue">ні</span></a>
 
-<b>27.</b> <a href="#traffic_on_highways_and_roads_for_cars">Рух по автомагістралях і дорогах для автомобіл<span style="color: rgb(68, 103, 195);">ів</span></a>
+<b>27.</b> <a href="#traffic_on_highways_and_roads_for_cars">Рух по автомагістралях і дорогах для автомобіл<span class="blue">ів</span></a>
 
-<b>28.</b> <a href="#driving_on_mountain_roads_and_on_steep_slopes">Рух по гірських дорогах і на крутих спуск<span style="color: rgb(68, 103, 195);">ах</span></a>
+<b>28.</b> <a href="#driving_on_mountain_roads_and_on_steep_slopes">Рух по гірських дорогах і на крутих спуск<span class="blue">ах</span></a>
 
-<b>29.</b> <a href="#international_movement">Міжнародний р<span style="color: rgb(68, 103, 195);">ух</span></a>
+<b>29.</b> <a href="#international_movement">Міжнародний р<span class="blue">ух</span></a>
 
-<b>30.</b> <a href="#number_plates_identification_signs_inscriptions_and_designations">Номерні, розпізнавальні знаки, написи та позначен<span style="color: rgb(68, 103, 195);">ня</span></a>
+<b>30.</b> <a href="#number_plates_identification_signs_inscriptions_and_designations">Номерні, розпізнавальні знаки, написи та позначен<span class="blue">ня</span></a>
 
-<b>31.</b> <a href="#technical_condition_of_vehicles_and_their_equipment">Технічний стан транспортних засобів та їх обладнан<span style="color: rgb(68, 103, 195);">ня</span></a>
+<b>31.</b> <a href="#technical_condition_of_vehicles_and_their_equipment">Технічний стан транспортних засобів та їх обладнан<span class="blue">ня</span></a>
 
-<b>32.</b> <a href="#separate_issues_of_traffic_organization_that_require_coordination">Окремі питання організації дорожнього руху, що потребують узгоджен<span style="color: rgb(68, 103, 195);">ня</span></a>
+<b>32.</b> <a href="#separate_issues_of_traffic_organization_that_require_coordination">Окремі питання організації дорожнього руху, що потребують узгоджен<span class="blue">ня</span></a>
 
-<b>33.</b> <a href="#warning">Дорожні зна<span style="color: rgb(68, 103, 195);">ки</span></a>
+<b>33.</b> <a href="#warning">Дорожні зна<span class="blue">ки</span></a>
 
-<b>34.</b> <a href="#horizontal_marking">Дорожня розміт<span style="color: rgb(68, 103, 195);">ка</span></a>
+<b>34.</b> <a href="#horizontal_marking">Дорожня розміт<span class="blue">ка</span></a>
 
 </pre>
 <pre id="warning">
 
 
 
-<b class="signsInfoAllBtn">1. ПОПЕРЕДЖУВАЛЬНІ ЗНА<span class="blu">КИ</span></b>
+<b class="signsInfoAllBtn">1. ПОПЕРЕДЖУВАЛЬНІ ЗНА<span class="blue">КИ</span></b>
 
 
 <div class="signsInfoAll">Попереджувальні знаки, крім знаків 1.4.1-1.4.3, 1.29-1.31.6, установлюються поза населеними пунктами на відстані 150-300 м, у населених пунктах на відстані 50-100 м до початку небезпечної ділянки. У разі потреби знаки встановлюються і на іншій відстані, яка зазначається на табличці 7.1.1.
@@ -5141,185 +5151,244 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
 </pre>
 <script>
 
-    // document.querySelectorAll('.sings span svg').forEach(e => 
-    //     e.style.margin = `${(90 - e.clientHeight) / 2}px 0`
-    // );
+    // знаки
 
-    // var signsInfoAlls = document.querySelectorAll('.signsInfoAll');
-    // document.querySelectorAll('.signsInfoAllBtn').forEach((e, i) => 
-    //     e.addEventListener('click', () => signsInfoAlls[i].classList.toggle('signsInfoAllBtnACTIVE'))
-    // );
+    document.querySelectorAll('.sings span svg').forEach(e => 
+        e.style.margin = `${(90 - e.clientHeight) / 2}px 0`
+    );
 
-    // var allSingsStatus = document.getElementById('allSingsStatus');
-    // var allSingsEnable = document.getElementById('allSingsEnable');
-    // var allSingsDisable = document.getElementById('allSingsDisable');
-    // allSingsEnable.addEventListener('click', () => { 
-    //     allSingsDisable.textContent = 'off'; 
-    //     allSingsEnable.textContent = '[on]'; 
-    //     allSingsStatus.style.color = 'rgb(72, 169, 72)'; 
-    // });
-    // allSingsDisable.addEventListener('click', () => { 
-    //     allSingsEnable.textContent = 'on'; 
-    //     allSingsDisable.textContent = '[off]'; 
-    //     allSingsStatus.style.color = 'rgb(197, 50, 36)'; 
-    // });
+    var signsInfoAlls = document.querySelectorAll('.signsInfoAll');
+    document.querySelectorAll('.signsInfoAllBtn').forEach((e, i) => 
+        e.addEventListener('click', () => signsInfoAlls[i].classList.toggle('signsInfoAllBtnACTIVE'))
+    );
 
-    // var moreInfoSingsStatus = document.getElementById('moreInfoSingsStatus'); 
-    // var moreInfoSingsEnable = document.getElementById('moreInfoSingsEnable'); 
-    // var moreInfoSingsDisable = document.getElementById('moreInfoSingsDisable');
-    // var moreInfoSingsDivs = document.querySelectorAll('.sings span div');
-    // moreInfoSingsEnable.addEventListener('click', () => { 
-    //     moreInfoSingsDivs.forEach(e => e.classList.add('show')); 
-    //     signsInfoAlls.forEach(e => e.classList.add('signsInfoAllBtnACTIVE')); 
-    //     moreInfoSingsDisable.textContent = 'off'; 
-    //     moreInfoSingsEnable.textContent = '[on]'; 
-    //     moreInfoSingsStatus.style.color = 'rgb(72, 169, 72)'; 
+    var allSingsStatus = document.getElementById('allSingsStatus');
+    var allSingsEnable = document.getElementById('allSingsEnable');
+    var allSingsDisable = document.getElementById('allSingsDisable');
+    allSingsEnable.addEventListener('click', () => { 
+        allSingsDisable.textContent = 'off'; 
+        allSingsEnable.textContent = '[on]'; 
+        allSingsStatus.style.color = 'rgb(72, 169, 72)'; 
+    });
+    allSingsDisable.addEventListener('click', () => { 
+        allSingsEnable.textContent = 'on'; 
+        allSingsDisable.textContent = '[off]'; 
+        allSingsStatus.style.color = 'rgb(197, 50, 36)'; 
+    });
 
-    //     allSingsDisable.textContent = 'off'; 
-    //     allSingsEnable.textContent = '[on]'; 
-    //     allSingsStatus.style.color = 'rgb(72, 169, 72)'; 
-    // });
-    // moreInfoSingsDisable.addEventListener('click', () => { 
-    //     moreInfoSingsDivs.forEach(e => e.classList.remove('show')); 
-    //     signsInfoAlls.forEach(e => e.classList.remove('signsInfoAllBtnACTIVE')); 
-    //     moreInfoSingsEnable.textContent = 'on'; 
-    //     moreInfoSingsDisable.textContent = '[off]'; 
-    //     moreInfoSingsStatus.style.color = 'rgb(197, 50, 36)'; 
+    var moreInfoSingsStatus = document.getElementById('moreInfoSingsStatus'); 
+    var moreInfoSingsEnable = document.getElementById('moreInfoSingsEnable'); 
+    var moreInfoSingsDisable = document.getElementById('moreInfoSingsDisable');
+    var moreInfoSingsDivs = document.querySelectorAll('.sings span div');
+    moreInfoSingsEnable.addEventListener('click', () => { 
+        moreInfoSingsDivs.forEach(e => e.classList.add('show')); 
+        signsInfoAlls.forEach(e => e.classList.add('signsInfoAllBtnACTIVE')); 
+        moreInfoSingsDisable.textContent = 'off'; 
+        moreInfoSingsEnable.textContent = '[on]'; 
+        moreInfoSingsStatus.style.color = 'rgb(72, 169, 72)'; 
 
-    //     allSingsEnable.textContent = 'on'; 
-    //     allSingsDisable.textContent = '[off]'; 
-    //     allSingsStatus.style.color = 'rgb(197, 50, 36)'; 
-    // });
+        allSingsDisable.textContent = 'off'; 
+        allSingsEnable.textContent = '[on]'; 
+        allSingsStatus.style.color = 'rgb(72, 169, 72)'; 
+    });
+    moreInfoSingsDisable.addEventListener('click', () => { 
+        moreInfoSingsDivs.forEach(e => e.classList.remove('show')); 
+        signsInfoAlls.forEach(e => e.classList.remove('signsInfoAllBtnACTIVE')); 
+        moreInfoSingsEnable.textContent = 'on'; 
+        moreInfoSingsDisable.textContent = '[off]'; 
+        moreInfoSingsStatus.style.color = 'rgb(197, 50, 36)'; 
 
-    // const spanNumber = document.querySelectorAll('.sings span span');
-    // const spanGlobals = new Map();
-    // spanNumber.forEach(e => {
-    //     const match = e.textContent.trim().match(/^(\d+\.\d+)\.1$/);
-    //     if (match) {
-    //         if (!spanGlobals.has(match[1])) { spanGlobals.set(match[1], e.parentElement); }
-    //         e.style.textDecoration = 'underline'; e.style.textUnderlineOffset = '4px'; e.style.textDecorationThickness = '1.2px'; e.style.textDecorationColor = 'rgb(68, 103, 195)'; e.parentElement.style.cursor = 'pointer';
-    //         spanNumber.forEach(s => {
-    //             const pattern = new RegExp(`^${match[1]}\\.([2-9]|[1-9]\\d+)$`);
-    //             if (pattern.test(s.textContent.trim())) {
-    //                 const parent = s.parentElement;
-    //                 parent.classList.toggle('disable');
-    //                 allSingsEnable.addEventListener('click', () => parent.classList.remove('disable') );
-    //                 allSingsDisable.addEventListener('click', () => parent.classList.add('disable') );
-    //                 moreInfoSingsEnable.addEventListener('click', () => parent.classList.remove('disable') );
-    //                 moreInfoSingsDisable.addEventListener('click', () => parent.classList.add('disable') );
-    //             }
-    //             e.parentElement.addEventListener('click', () => s.parentElement.classList.toggle('disable') );
-    //         });
-    //     }
-    // });
+        allSingsEnable.textContent = 'on'; 
+        allSingsDisable.textContent = '[off]'; 
+        allSingsStatus.style.color = 'rgb(197, 50, 36)'; 
+    });
 
-    // function generateRandomString(length) {
-    //     const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-    //     let result = '';
-    //     for (let i = 0; i < length; i++) { result += characters.charAt(Math.floor(Math.random() * characters.length)); }
-    //     return result;
-    // }
-    // document.querySelectorAll('svg').forEach(e => {
-    //     const style = e.querySelector('style');
-    //     if (style) {
-    //         const classNames = new Set(style.innerHTML.match(/\.[a-z][a-z0-9-]*/gi));
-    //         classNames.forEach((className) => {
-    //             const randomString = generateRandomString(8);
-    //             const newClassName = `${className}-${randomString}`;
-    //             style.innerHTML = style.innerHTML.replace(new RegExp(`\\${className}`, 'g'), newClassName);
-    //             e.querySelectorAll(className).forEach((element) => {
-    //                 element.classList.remove(className.substring(1));
-    //                 element.classList.add(newClassName.substring(1));
-    //             });
-    //         });
-    //     }
-    // });
+    const spanNumber = document.querySelectorAll('.sings span span');
+    const spanGlobals = new Map();
+    spanNumber.forEach(e => {
+        const match = e.textContent.trim().match(/^(\d+\.\d+)\.1$/);
+        if (match) {
+            if (!spanGlobals.has(match[1])) { spanGlobals.set(match[1], e.parentElement); }
+            e.style.textDecoration = 'underline'; e.style.textUnderlineOffset = '4px'; e.style.textDecorationThickness = '1.2px'; e.style.textDecorationColor = 'rgb(68, 103, 195)'; e.parentElement.style.cursor = 'pointer';
+            spanNumber.forEach(s => {
+                const pattern = new RegExp(`^${match[1]}\\.([2-9]|[1-9]\\d+)$`);
+                if (pattern.test(s.textContent.trim())) {
+                    const parent = s.parentElement;
+                    parent.classList.toggle('disable');
+                    allSingsEnable.addEventListener('click', () => parent.classList.remove('disable') );
+                    allSingsDisable.addEventListener('click', () => parent.classList.add('disable') );
+                    moreInfoSingsEnable.addEventListener('click', () => parent.classList.remove('disable') );
+                    moreInfoSingsDisable.addEventListener('click', () => parent.classList.add('disable') );
+                    e.parentElement.addEventListener('click', () => s.parentElement.classList.toggle('disable') );
+                }
+            });
+        }
+    });
 
-    // document.getElementById("themes").addEventListener("click", function() {
-    //     var body = document.body; 
-    //     var probar = document.getElementsByClassName('progress-bar')[0];
-    //     var divMoreInfoThems = document.querySelectorAll('.sings span div');
-    //     if (body.style.backgroundColor === 'rgb(238, 238, 238)') {
-    //         body.style.backgroundColor = '#0d0d0d'; body.style.color = '#EEEEEE';
-    //         probar.style.backgroundColor = '#EEEEEE'; divMoreInfoThems.forEach(e => e.style.borderColor = '#EEEEEE')
-    //         signsInfoAlls.forEach(e => e.style.borderColor = '#EEEEEE');
-    //     } else {
-    //         body.style.backgroundColor = '#EEEEEE'; body.style.color = '#0d0d0d';
-    //         probar.style.backgroundColor = '#0d0d0d'; divMoreInfoThems.forEach(e => e.style.borderColor = '#0d0d0d')
-    //         signsInfoAlls.forEach(e => e.style.borderColor = '#0d0d0d');
-    //     }
-    // });
+    // знаки рендинг кольору
 
-    // const anchors = document.querySelectorAll('a[href*="#"]');
-    // anchors.forEach(anchor => {
-    // anchor.addEventListener('click', event => {
-    //     event.preventDefault();
-    //     const blockID = anchor.getAttribute('href').substring(1);
-    //     document.getElementById(blockID).scrollIntoView({ behavior: 'smooth', block: 'start' })
-    // })});
+    function generateRandomString(l) {
+        let result = '';
+        for (let i = 0; i < l; i++) { result += 'abcdefghijklmnopqrstuvwxyz0123456789'.charAt(Math.floor(Math.random() * 'abcdefghijklmnopqrstuvwxyz0123456789'.length)); }
+        return result;
+    }
+    document.querySelectorAll('svg').forEach(e => {
+        const style = e.querySelector('style');
+        if (style) {
+            const classNames = new Set(style.innerHTML.match(/\.[a-z][a-z0-9-]*/gi));
+            classNames.forEach(c => {
+                const newClassName = `${c}-${generateRandomString(8)}`;
+                style.innerHTML = style.innerHTML.replace(new RegExp(`\\${c}`, 'g'), newClassName);
+                e.querySelectorAll(c).forEach(e => {
+                    e.classList.remove(c.substring(1));
+                    e.classList.add(newClassName.substring(1));
+                });
+            });
+        }
+    });
 
-    // window.onscroll = function() {scrollIndicator()};
-    // function scrollIndicator() {
-    //     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    //     var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    //     var scrolled = (winScroll / height) * 100;
-    //     document.querySelector('.progress-bar').style.width = scrolled + "%";
-    // };
+    // теми
 
-    // window.onload = function() {  window.scrollTo((document.body.clientWidth / 2) - (window.innerWidth / 2), 0); };
+    document.getElementById("themes").addEventListener("click", () => {
+        var body = document.body; 
+        var probar = document.getElementsByClassName('progress-bar')[0];
+        if (body.style.backgroundColor === 'rgb(238, 238, 238)') {
 
-    // document.querySelectorAll('.player').forEach( (player, i) => {
-    //     var once = false; player.setAttribute("width", 640); player.setAttribute("height", 360); player.setAttribute("frameborder", 0);
-    //     document.addEventListener('scroll', function() {
-    //         if (player.closest('.viewCNT.active')) {
-    //             const rect = player.getBoundingClientRect(); 
-    //             if (( ( rect.top - 1000 ) < 1000 && ( rect.bottom + 1000 ) > 0 )) {  
-    //                 if ( !once ) { once = true; player.setAttribute("src", `https://www.youtube.com/embed/${player.getAttribute("dataID")}?playlist=${player.getAttribute("dataID")}&loop=1&autoplay=1&mute=1&controls=0&modestbranding=0&showinfo=0&iv_load_policy=3&rel=0&fs=0&disablekb=1&playsinline=1&wmode=transparent&branding=0&autohide=0&enablejsapi=1`); } 
-    //             } else { if ( once ) { once = false; player.setAttribute("src", ""); } }
-    //         }
-    //     } );
-    // } );
-    // document.querySelectorAll('img[data-src]').forEach( (img, i) => {
-    //     var once = false;
-    //     document.addEventListener('scroll', function() {
-    //         if (img.closest('.viewCNT.active')) {
-    //             const rect = img.getBoundingClientRect(); 
-    //             if (( ( rect.top - 1000 ) < 1000 && ( rect.bottom + 1000 ) > 0 )) {  
-    //                 if ( !once ) { once = true; img.setAttribute("src", `${img.getAttribute("data-src")}`); }
-    //             } else { if ( once ) { once = false; img.setAttribute("src", ""); } }
-    //         }
-    //     } );
-    // } );
-    // var viewBTNs = document.querySelectorAll('.viewBTN');
-    // var viewCNTs = document.querySelectorAll('.viewCNT');
-    // viewBTNs.forEach((viewBTN, i) => {
-    //     viewBTN.addEventListener('click', () => {
-    //         viewCNTs[i].classList.toggle('active');
-    //         if (viewCNTs[i].querySelector('.player')) {
-    //             var playerVIEW = viewCNTs[i].querySelector('.player');
-    //             if (viewCNTs[i].classList.contains('active')) { playerVIEW.setAttribute("src", `https://www.youtube.com/embed/${playerVIEW.getAttribute("dataID")}?playlist=${playerVIEW.getAttribute("dataID")}&loop=1&autoplay=1&mute=1&controls=0&modestbranding=0&showinfo=0&iv_load_policy=3&rel=0&fs=0&disablekb=1&playsinline=1&wmode=transparent&branding=0&autohide=0&enablejsapi=1`); 
-    //             } else { playerVIEW.setAttribute("src", ""); } }
-    //         if (viewCNTs[i].querySelector('img[data-src]')) {
-    //             var imgVIEW = viewCNTs[i].querySelector('img[data-src]');
-    //             if (viewCNTs[i].classList.contains('active')) { imgVIEW.setAttribute("src", `${imgVIEW.getAttribute("data-src")}`);
-    //             } else { imgVIEW.setAttribute("src", ""); }
-    //         }
-    //     });
-    // });
-    // const viewCNTsIMG = Array.from(viewCNTs).filter(function(v) { return v.querySelector('img') !== null; }); var imageStatus = document.getElementById('imageStatus'); var imageEnable = document.getElementById('imageEnable'); var imageDisable = document.getElementById('imageDisable');
-    // viewCNTsIMG.forEach((e) => {e.style.paddingBottom = "-35px"})
-    // imageEnable.addEventListener('click', function() { viewCNTsIMG.forEach(function(c) { c.classList.add('active'); }); imageDisable.textContent = 'off'; imageEnable.textContent = '[on]'; imageStatus.style.color = 'rgb(72, 169, 72)'; });
-    // imageDisable.addEventListener('click', function() { viewCNTsIMG.forEach(function(c) { c.classList.remove('active'); }); imageEnable.textContent = 'on'; imageDisable.textContent = '[off]'; imageStatus.style.color = 'rgb(197, 50, 36)'; });
-    // const viewCNTsVIDEO = Array.from(viewCNTs).filter(function(v) { return v.querySelector('div') !== null; }); var videoStatus = document.getElementById('videoStatus'); var videoEnable = document.getElementById('videoEnable'); var videoDisable = document.getElementById('videoDisable');
-    // videoEnable.addEventListener('click', function() { viewCNTsVIDEO.forEach(function(c) { c.classList.add('active'); }); videoDisable.textContent = 'off'; videoEnable.textContent = '[on]'; videoStatus.style.color = 'rgb(72, 169, 72)'; });
-    // videoDisable.addEventListener('click', function() { viewCNTsVIDEO.forEach(function(c) { c.classList.remove('active'); }); videoEnable.textContent = 'on'; videoDisable.textContent = '[off]'; videoStatus.style.color = 'rgb(197, 50, 36)'; });
-    // var svgStatus = document.getElementById('svgStatus'); var svgEnable = document.getElementById('svgEnable'); var svgDisable = document.getElementById('svgDisable'); var svgs = document.querySelectorAll('svg');
-    // svgEnable.addEventListener('click', function() { svgs.forEach(function(svg) { svg.style.opacity = '1'; }); svgDisable.textContent = 'off'; svgEnable.textContent = '[on]'; svgStatus.style.color = 'rgb(72, 169, 72)'; });
-    // svgDisable.addEventListener('click', function() { svgs.forEach(function(svg) { svg.style.opacity = '0'; }); svgEnable.textContent = 'on'; svgDisable.textContent = '[off]'; svgStatus.style.color = 'rgb(197, 50, 36)'; });
+            body.style.backgroundColor = '#0d0d0d'; 
+            body.style.color = '#EEEEEE';
+            probar.style.backgroundColor = '#EEEEEE'; 
+            moreInfoSingsDivs.forEach(e => e.style.borderColor = '#EEEEEE')
+            signsInfoAlls.forEach(e => e.style.borderColor = '#EEEEEE');
+        } else {
+            body.style.backgroundColor = '#EEEEEE'; 
+            body.style.color = '#0d0d0d';
+            probar.style.backgroundColor = '#0d0d0d'; 
+            moreInfoSingsDivs.forEach(e => e.style.borderColor = '#0d0d0d')
+            signsInfoAlls.forEach(e => e.style.borderColor = '#0d0d0d');
+        }
+    });
 
-    // document.querySelectorAll('.sings span').forEach(e => { if(e.nextElementSibling && e.nextElementSibling.tagName === 'DIV') { e.parentElement.classList.add('add-square'); e.parentElement.style.position = 'relative'; e.parentElement.style.cursor = 'pointer'; e.parentElement.addEventListener('click', () => e.nextElementSibling.classList.toggle('show')) } });
+    // скрол
 
-    // document.querySelectorAll('.viewBTN').forEach(e => e.innerHTML = `<span style="color: rgb(68, 103, 195);">[</span>${e.textContent.replace(/\[|\]/g, '').trim()}<span style="color: rgb(68, 103, 195);">]</span>`);
+    document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById(anchor.getAttribute('href').substring(1)).scrollIntoView({ 
+            behavior: 'smooth', block: 'start'
+        })
+    })});
+
+    window.onscroll = () => {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        document.querySelector('.progress-bar').style.width = scrolled + "%";
+    }; // window.onload = () => { window.scrollTo((document.body.clientWidth / 2) - (window.innerWidth / 2), 0); };
+
+    // відео і зображення
+
+    document.querySelectorAll('.player').forEach( (p, i) => {
+        var once = false; p.setAttribute("width", 640); p.setAttribute("height", 360); p.setAttribute("frameborder", 0);
+        document.addEventListener('scroll', function() {
+            if (p.closest('.viewCNT.active')) {
+                const rect = p.getBoundingClientRect(); 
+                if (( ( rect.top - 1000 ) < 1000 && ( rect.bottom + 1000 ) > 0 )) {  
+                    if ( !once ) { once = true; p.setAttribute("src", `https://www.youtube.com/embed/${p.getAttribute("dataID")}?playlist=${p.getAttribute("dataID")}&loop=1&autoplay=1&mute=1&controls=0&modestbranding=0&showinfo=0&iv_load_policy=3&rel=0&fs=0&disablekb=1&playsinline=1&wmode=transparent&branding=0&autohide=0&enablejsapi=1`); } 
+                } else { if ( once ) { once = false; p.setAttribute("src", ""); } }
+            }
+        });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach( (e, i) => {
+        var once = false;
+        document.addEventListener('scroll', function() {
+            if (e.closest('.viewCNT.active')) {
+                const rect = e.getBoundingClientRect(); 
+                if (( ( rect.top - 1000 ) < 1000 && ( rect.bottom + 1000 ) > 0 )) {  
+                    if ( !once ) { once = true; e.setAttribute("src", `${e.getAttribute("data-src")}`); }
+                } else { if ( once ) { once = false; e.setAttribute("src", ""); } }
+            }
+        });
+    });
+
+    var viewBTNs = document.querySelectorAll('.viewBTN');
+    var viewCNTs = document.querySelectorAll('.viewCNT');
+    viewBTNs.forEach((viewBTN, i) => {
+        viewBTN.addEventListener('click', () => {
+            viewCNTs[i].classList.toggle('active');
+            if (viewCNTs[i].querySelector('.player')) {
+                var playerVIEW = viewCNTs[i].querySelector('.player');
+                if (viewCNTs[i].classList.contains('active')) { playerVIEW.setAttribute("src", `https://www.youtube.com/embed/${playerVIEW.getAttribute("dataID")}?playlist=${playerVIEW.getAttribute("dataID")}&loop=1&autoplay=1&mute=1&controls=0&modestbranding=0&showinfo=0&iv_load_policy=3&rel=0&fs=0&disablekb=1&playsinline=1&wmode=transparent&branding=0&autohide=0&enablejsapi=1`); 
+                } else { playerVIEW.setAttribute("src", ""); } }
+            if (viewCNTs[i].querySelector('img[data-src]')) {
+                var imgVIEW = viewCNTs[i].querySelector('img[data-src]');
+                if (viewCNTs[i].classList.contains('active')) { imgVIEW.setAttribute("src", `${imgVIEW.getAttribute("data-src")}`);
+                } else { imgVIEW.setAttribute("src", ""); }
+            }
+        });
+    });
+
+    const viewCNTsIMG = Array.from(viewCNTs).filter(v => { return v.querySelector('img') !== null });
+    var imageStatus = document.getElementById('imageStatus'); 
+    var imageEnable = document.getElementById('imageEnable'); 
+    var imageDisable = document.getElementById('imageDisable');
+    imageEnable.addEventListener('click', () => { 
+        viewCNTsIMG.forEach(c => c.classList.add('active'));
+        imageDisable.textContent = 'off'; imageEnable.textContent = '[on]'; 
+        imageStatus.style.color = 'rgb(72, 169, 72)';
+    });
+    imageDisable.addEventListener('click', () => { 
+        viewCNTsIMG.forEach(c => c.classList.remove('active')); 
+        imageEnable.textContent = 'on'; imageDisable.textContent = '[off]'; 
+        imageStatus.style.color = 'rgb(197, 50, 36)'; 
+    });
+    
+    const viewCNTsVIDEO = Array.from(viewCNTs).filter(v => { return v.querySelector('div') !== null });
+    var videoStatus = document.getElementById('videoStatus'); 
+    var videoEnable = document.getElementById('videoEnable'); 
+    var videoDisable = document.getElementById('videoDisable');
+    videoEnable.addEventListener('click', () => { 
+        viewCNTsVIDEO.forEach(c => c.classList.add('active')); 
+        videoDisable.textContent = 'off'; 
+        videoEnable.textContent = '[on]'; 
+        videoStatus.style.color = 'rgb(72, 169, 72)'; 
+    });
+    videoDisable.addEventListener('click', () => { 
+        viewCNTsVIDEO.forEach(c => c.classList.remove('active')); 
+        videoEnable.textContent = 'on'; 
+        videoDisable.textContent = '[off]';
+        videoStatus.style.color = 'rgb(197, 50, 36)'; 
+    });
+
+    var svgStatus = document.getElementById('svgStatus'); 
+    var svgEnable = document.getElementById('svgEnable'); 
+    var svgDisable = document.getElementById('svgDisable'); 
+    var svgs = document.querySelectorAll('svg');
+    svgEnable.addEventListener('click', () => { 
+        svgs.forEach(s => s.style.opacity = '1');
+        svgDisable.textContent = 'off'; 
+        svgEnable.textContent = '[on]'; 
+        svgStatus.style.color = 'rgb(72, 169, 72)'; 
+    });
+    svgDisable.addEventListener('click', () => { 
+        svgs.forEach(s => s.style.opacity = '0');
+        svgEnable.textContent = 'on'; 
+        svgDisable.textContent = '[off]'; 
+        svgStatus.style.color = 'rgb(197, 50, 36)'; 
+    });
+
+    document.querySelectorAll('.sings span').forEach(e => { 
+        if(e.nextElementSibling && e.nextElementSibling.tagName === 'DIV') { 
+            e.parentElement.classList.add('add-square'); 
+            e.parentElement.style.position = 'relative'; 
+            e.parentElement.style.cursor = 'pointer'; 
+            e.parentElement.addEventListener('click', () => e.nextElementSibling.classList.toggle('show')) 
+        } 
+    });
+
+    document.querySelectorAll('.viewBTN').forEach(e => 
+        e.innerHTML = `<span class="blue">[</span>${e.textContent.replace(/\[|\]/g, '').trim()}<span class="blue">]</span>`
+    );
 
 </script>
 </body>
