@@ -5,27 +5,8 @@
     <meta charset="UTF-8">
     <title>pdr</title>
     <style>
-        .loading-gif { max-width: 500px; }
-
-        .pre-loader {
-            display: flex; justify-content: center; align-items: center;
-            height: 100vh; width: 100vw;
-            position: absolute; z-index: 100000; background: rgb(238, 238, 238);
-        }
-        
-        .pre-loader.hidden { animation: fadeOut 1s; animation-fill-mode: forwards; }
-
-        @keyframes fadeOut { 100% { opacity: 0; visibility: hidden; } }
-    </style>
-    <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Geo&display=swap');
-        /* загрузка */
-        .loaderCSS {
-            position: absolute; left: 0; right: 0;
-            height: 100vh; width: 100vw;
-            display: flex; justify-content: center; align-items: center;
-            background-color: rgb(238, 238, 238); color: #0d0d0d; font-family: monospace; font-size: 50px; }
         /* загальні */
         * { font-family: 'Roboto Mono'; text-wrap: wrap; margin: 0; padding: 0; }
         body { min-width: fit-content; }
@@ -70,7 +51,7 @@
     </style>
 </head>
 <body style="background-color: rgb(238, 238, 238); color: #0d0d0d;">
-<div class="progress"><div class="progress-bar"></div></div><div class='pre-loader'>загрузка</div>
+<div class="progress"><div class="progress-bar"></div></div>
 <a class="up" href="#goup">up</a>
 <pre>
 
@@ -5167,21 +5148,7 @@ _) ::'/       /’;;:::: · ´                    .·´(.·´/       /);; --  ' 
 Забороняється, у тому числі в умовах спеціалізованих підприємств, які здійснюють ремонт і технічне обслуговування транспортних засобів, внесення змін в ідентифікаційні номери та номерні таблички кузова чи шасі (рами), двигуна транспортного засобу, а також їх знищення (перенесення, закріплення, відновлення тощо) без попереднього узгодження з територіальними органами з надання сервісних послуг МВС.
 
 
-</pre><span id="trackLod"></span>
-<script type='text/javascript'>
-    window.addEventListener('load', function () {
-        document.querySelector('.pre-loader').className += ' hidden';
-    });
-</script>
-<!-- <script>
-    window.addEventListener('load', () => {
-        const loader = document.createElement('div');
-        loader.classList.add('loaderCSS');
-        loader.textContent = 'загрузка може тривати 1-2хв';
-        document.body.appendChild(loader);
-        if (document.getElementById('trackLod')) { loader.remove(); }
-    });
-</script> -->
+</pre>
 <script>
 
     // знаки
